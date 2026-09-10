@@ -77,7 +77,7 @@ npm run watch
 - Keep schedule, roster, result, contact, and editorial updates in
   `public/data/team-data.json`; volunteers should not need to edit Angular
   code for normal content maintenance. Preserve stable IDs, ISO `YYYY-MM-DD`
-  dates, typed enum values (`practice`/`match`, `win`/`loss`/`draw`), complete
+  dates, typed enum values (`practice`/`pickup`/`match`, `win`/`loss`/`draw`), complete
   URLs, and both `vi` and `en` values for public copy.
 - Keep public data privacy-safe: do not add private phone numbers, home
   addresses, personal accounts, or player photos without consent. Use the

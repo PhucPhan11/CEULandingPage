@@ -19,7 +19,7 @@ system.
 - Dates use `YYYY-MM-DD`, for example `2026-09-12`, so the site can sort and
   expose them as machine-readable `<time>` values.
 - Times use the local Can Tho time zone in a human-readable 24-hour format.
-- `kind` must be `practice` or `match`.
+- `kind` must be `practice`, `pickup`, or `match`.
 - Results use numeric `teamScore` and `opponentScore` values and an `outcome` of
   `win`, `loss`, or `draw`.
 - Use stable, unique `id` values for schedule, roster, and result entries.
@@ -93,6 +93,9 @@ Copy an existing item in the `schedule` array and update:
 
 Use `opponent` for a match and omit it for a practice. Put the newest upcoming
 event first so the hero and schedule section lead with the most useful update.
+For recurring activities, use the next occurrence as the machine-readable
+`date`, describe the recurrence in `dateLabel`, and repeat the time pattern in
+the optional `note`.
 
 ## Adding a result
 

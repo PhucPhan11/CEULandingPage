@@ -101,112 +101,55 @@
   },
   "schedule": [
     {
-      "id": "practice-01",
-      "date": "2026-09-12",
+      "id": "training-friday",
+      "date": "2026-09-11",
       "dateLabel": {
-        "vi": "Thứ Bảy, 12 tháng 9",
-        "en": "Saturday, September 12"
+        "vi": "Thứ 6 hàng tuần",
+        "en": "Every Friday"
       },
-      "time": "16:30 - 18:30",
+      "time": "20:00 - 21:30",
       "kind": "practice",
       "title": {
-        "vi": "Buổi tập mở",
-        "en": "Open practice"
+        "vi": "Training",
+        "en": "Training"
       },
       "location": {
-        "vi": "Sân vận động Cần Thơ",
-        "en": "Can Tho Stadium"
+        "vi": "Sân bóng đá Huỳnh Châu",
+        "en": "Huynh Chau Football Field"
       },
       "address": {
-        "vi": "Đường Lê Duẩn, Ninh Kiều",
-        "en": "Le Duan Street, Ninh Kieu"
+        "vi": "Cần Thơ",
+        "en": "Can Tho"
       },
-      "mapUrl": "https://maps.google.com/?q=Can+Tho+Stadium",
       "note": {
-        "vi": "Người mới luôn được chào đón - mang theo nước và giày thể thao.",
-        "en": "First-timers are welcome - bring water and athletic shoes."
+        "vi": "20:00 - 21:30, thứ 6 hàng tuần.",
+        "en": "20:00 - 21:30, every Friday."
       }
     },
     {
-      "id": "match-01",
-      "date": "2026-09-19",
+      "id": "pickup-last-friday",
+      "date": "2026-09-25",
       "dateLabel": {
-        "vi": "Thứ Bảy, 19 tháng 9",
-        "en": "Saturday, September 19"
+        "vi": "Thứ 6 cuối tháng",
+        "en": "Last Friday of the month"
       },
-      "time": "07:00 - 11:00",
-      "kind": "match",
+      "time": "20:00 - 21:30",
+      "kind": "pickup",
       "title": {
-        "vi": "Giao hữu miền Tây",
-        "en": "Mekong friendly"
+        "vi": "Pick-up",
+        "en": "Pick-up"
       },
-      "opponent": "Mekong Flyers",
       "location": {
         "vi": "Sân bóng Đại học Cần Thơ",
-        "en": "Can Tho University field"
+        "en": "Can Tho University Football Field"
       },
       "address": {
-        "vi": "Khu II, đường 3 tháng 2",
-        "en": "Campus II, 3/2 Street"
+        "vi": "Cần Thơ",
+        "en": "Can Tho"
       },
-      "mapUrl": "https://maps.google.com/?q=Can+Tho+University",
       "note": {
-        "vi": "Tập trung lúc 06:30 tại cổng sân.",
-        "en": "Meet at the field gate at 06:30."
-      }
-    },
-    {
-      "id": "practice-02",
-      "date": "2026-09-22",
-      "dateLabel": {
-        "vi": "Thứ Ba, 22 tháng 9",
-        "en": "Tuesday, September 22"
-      },
-      "time": "18:00 - 20:00",
-      "kind": "practice",
-      "title": {
-        "vi": "Tập kỹ thuật & chiến thuật",
-        "en": "Skills & strategy"
-      },
-      "location": {
-        "vi": "Công viên Sông Hậu",
-        "en": "Song Hau Park"
-      },
-      "address": {
-        "vi": "Đường Sông Hậu, Cái Khế",
-        "en": "Song Hau Road, Cai Khe"
-      },
-      "mapUrl": "https://maps.google.com/?q=Song+Hau+Park",
-      "note": {
-        "vi": "Buổi tập cường độ vừa, phù hợp với mọi trình độ.",
-        "en": "A moderate session for every experience level."
-      }
-    },
-    {
-      "id": "practice-03",
-      "date": "2026-09-26",
-      "dateLabel": {
-        "vi": "Thứ Bảy, 26 tháng 9",
-        "en": "Saturday, September 26"
-      },
-      "time": "16:30 - 18:30",
-      "kind": "practice",
-      "title": {
-        "vi": "Scrimmage cuối tuần",
-        "en": "Weekend scrimmage"
-      },
-      "location": {
-        "vi": "Sân vận động Cần Thơ",
-        "en": "Can Tho Stadium"
-      },
-      "address": {
-        "vi": "Đường Lê Duẩn, Ninh Kiều",
-        "en": "Le Duan Street, Ninh Kieu"
-      },
-      "mapUrl": "https://maps.google.com/?q=Can+Tho+Stadium",
-      "note": {
-        "vi": "Chia đội và thi đấu ngắn để áp dụng kỹ thuật.",
-        "en": "Short games to put new skills into play."
+        "vi": "20:00 - 21:30, thứ 6 cuối tháng.",
+        "en": "20:00 - 21:30, the last Friday of each month."
       }
     }
   ],

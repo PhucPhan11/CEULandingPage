@@ -5,7 +5,7 @@ export interface LocalizedText {
   en: string;
 }
 
-export type ScheduleKind = 'practice' | 'match';
+export type ScheduleKind = 'practice' | 'pickup' | 'match';
 export type ResultOutcome = 'win' | 'loss' | 'draw';
 
 export interface TeamStat {
