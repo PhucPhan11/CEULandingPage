@@ -21,6 +21,7 @@
 - [x] Updated recurring club activities to Friday Training and month-end Friday Pick-up at the supplied fields.
 - [x] Added the official Google Maps links and supplied addresses for both recurring activity venues.
 - [x] Added the Recent Events section with the Thu Duc friendly match logo and two supplied match photos.
+- [x] Added the Southwest Hat 2024 event with its logo, background, and supplied event photo.
 - [x] Added content maintenance documentation and GitHub Pages deployment workflow.
 - [x] Verified the production build, the `/CEULandingPage/` base-href build, and two focused Angular tests.
 - [x] Made the data request relative to the base href so GitHub Pages can serve `team-data.json` from the repository subpath.

@@ -16,6 +16,17 @@
     <div class="event-list">
       @for (event of events; track event.id) {
         <article class="event-card">
+          @if (event.background) {
+            <div class="event-background">
+              <img
+                [src]="event.background"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+            </div>
+          }
+
           <div class="event-card-header">
             <div>
               <p class="event-date">
@@ -23,27 +34,33 @@
               </p>
               <h3>{{ event.title | localized: language }}</h3>
             </div>
-            <div
-              class="event-matchup"
-              [attr.aria-label]="language === 'vi' ? 'Các đội tham gia' : 'Teams'"
-            >
-              <div class="event-team">
-                <div class="event-team-logo">
-                  <img
-                    [src]="brandAssets.avatar"
-                    [alt]="language === 'vi' ? 'Logo CanTho Entixie Ultimate' : 'CanTho Entixie Ultimate logo'"
-                  />
+            @if (event.opponentLogo && event.opponent) {
+              <div
+                class="event-matchup"
+                [attr.aria-label]="language === 'vi' ? 'Các đội tham gia' : 'Teams'"
+              >
+                <div class="event-team">
+                  <div class="event-team-logo">
+                    <img
+                      [src]="brandAssets.avatar"
+                      [alt]="language === 'vi' ? 'Logo CanTho Entixie Ultimate' : 'CanTho Entixie Ultimate logo'"
+                    />
+                  </div>
+                  <span>CEU</span>
                 </div>
-                <span>CEU</span>
-              </div>
-              <span class="event-versus" aria-hidden="true">×</span>
-              <div class="event-team">
-                <div class="event-team-logo event-opponent-logo">
-                  <img [src]="event.opponentLogo" [alt]="event.opponent + ' logo'" />
+                <span class="event-versus" aria-hidden="true">×</span>
+                <div class="event-team">
+                  <div class="event-team-logo event-opponent-logo">
+                    <img [src]="event.opponentLogo" [alt]="event.opponent + ' logo'" />
+                  </div>
+                  <span>{{ event.opponent }}</span>
                 </div>
-                <span>{{ event.opponent }}</span>
               </div>
-            </div>
+            } @else if (event.eventLogo) {
+              <div class="event-feature-logo">
+                <img [src]="event.eventLogo" [alt]="event.title | localized: language" />
+              </div>
+            }
           </div>
 
           <div class="event-gallery">

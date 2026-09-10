@@ -40,6 +40,15 @@ describe('App', () => {
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('Cộng đồng Cơ Đốc');
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Gây dựng');
     expect(compiled.querySelector('.event-card h3')?.textContent).toContain('Giao hữu CEU');
+    expect(compiled.querySelectorAll('.event-card')).toHaveLength(2);
+    expect(compiled.querySelector('.event-background')).toBeTruthy();
+    expect(compiled.textContent).toContain('Giải Southwest Hat');
+    expect(compiled.querySelector('.event-background img')?.getAttribute('src'))
+      .toBe('ceu-img/events/southwest-hat-2024-background.png');
+    expect(compiled.querySelector('.event-feature-logo img')?.getAttribute('src'))
+      .toBe('ceu-img/events/southwest-hat-2024-logo.png');
+    expect(compiled.querySelector('img[alt="Ảnh giải đấu"]')?.getAttribute('src'))
+      .toBe('ceu-img/events/southwest-hat-2024-match.png');
 
     const englishButton = compiled.querySelector('button:last-of-type') as HTMLButtonElement;
     englishButton.click();
@@ -49,6 +58,8 @@ describe('App', () => {
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('A Christian community');
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Build. Train. Share.');
     expect(compiled.querySelector('.event-card h3')?.textContent).toContain('CEU friendly match');
+    expect(compiled.querySelectorAll('.event-feature-logo')).toHaveLength(1);
+    expect(compiled.textContent).toContain('Southwest Hat tournament');
   });
 });
 
@@ -89,6 +100,20 @@ const sampleTeamData: TeamData = {
         {
           src: 'ceu-img/events/thuduc-match-01.png',
           alt: { vi: 'Ảnh giao hữu', en: 'Friendly match photo' },
+        },
+      ],
+    },
+    {
+      id: 'event-2',
+      date: '2024-04-27',
+      dateLabel: { vi: '27/04/2024', en: 'April 27, 2024' },
+      title: { vi: 'Giải Southwest Hat', en: 'Southwest Hat tournament' },
+      eventLogo: 'ceu-img/events/southwest-hat-2024-logo.png',
+      background: 'ceu-img/events/southwest-hat-2024-background.png',
+      images: [
+        {
+          src: 'ceu-img/events/southwest-hat-2024-match.png',
+          alt: { vi: 'Ảnh giải đấu', en: 'Tournament photo' },
         },
       ],
     },

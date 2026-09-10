@@ -79,8 +79,10 @@ export interface RecentEvent {
   date: string;
   dateLabel: LocalizedText;
   title: LocalizedText;
-  opponent: string;
-  opponentLogo: string;
+  opponent?: string;
+  opponentLogo?: string;
+  eventLogo?: string;
+  background?: string;
   images: RecentEventImage[];
 }
 

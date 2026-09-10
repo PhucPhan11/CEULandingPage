@@ -23,8 +23,9 @@ system.
 - Results use numeric `teamScore` and `opponentScore` values and an `outcome` of
   `win`, `loss`, or `draw`.
 - Recent events use `date` in `YYYY-MM-DD`, a bilingual `title`, an opponent
-  name/logo path, and image entries with bilingual alt text.
-- Use stable, unique `id` values for schedule, roster, and result entries.
+  name/logo or event logo, an optional event background, and image entries with
+  bilingual alt text.
+- Use stable, unique `id` values for schedule, roster, result, and event entries.
 - Keep location addresses and map links public and safe to share.
 - Use an empty `photo` value or omit the field when a player has no approved
   public photo. The site falls back to initials.
@@ -66,8 +67,10 @@ logos under `public/ceu-img/events/`, then reference them with paths beginning
 with `ceu-img/`. Keep event image alt text bilingual and avoid publishing
 photos without the required consent.
 
-The event card is intended for match memories and photo galleries; keep
-scorelines in the separate `results` array when a result is available.
+The event card is intended for match memories and photo galleries; use
+`opponent`/`opponentLogo` for head-to-head events or `eventLogo`/`background`
+for tournaments and festivals. Keep scorelines in the separate `results` array
+when a result is available.
 
 ## Adding a schedule item
 

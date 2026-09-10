@@ -339,6 +339,29 @@
           }
         }
       ]
+    },
+    {
+      "id": "southwest-hat-2024",
+      "date": "2024-04-27",
+      "dateLabel": {
+        "vi": "27/04/2024",
+        "en": "April 27, 2024"
+      },
+      "title": {
+        "vi": "GIẢI ULTIMATE FRISBEE SOUTHWEST HAT 2024",
+        "en": "SOUTHWEST HAT ULTIMATE FRISBEE TOURNAMENT 2024"
+      },
+      "eventLogo": "ceu-img/events/southwest-hat-2024-logo.png",
+      "background": "ceu-img/events/southwest-hat-2024-background.png",
+      "images": [
+        {
+          "src": "ceu-img/events/southwest-hat-2024-match.png",
+          "alt": {
+            "vi": "Đội CEU tại giải Ultimate Frisbee Southwest Hat 2024",
+            "en": "The CEU team at the Southwest Hat Ultimate Frisbee Tournament 2024"
+          }
+        }
+      ]
     }
   ],
   "recruitment": {

@@ -58,8 +58,9 @@ npm run watch
 - Fixed visual assets live in `public/ceu-img/` and their paths are centralized
   in `src/app/shared/brand-assets.ts`. Use that object for the avatar,
   wordmark/background, and jersey images rather than repeating asset paths.
-- Recent event photos and opponent logos live in `public/ceu-img/events/` and
-  are referenced by the `events` data collection with `ceu-img/...` paths.
+- Recent event photos, backgrounds, and opponent/event logos live in
+  `public/ceu-img/events/` and are referenced by the `events` data collection
+  with `ceu-img/...` paths.
 - Global layout, responsive behavior, design tokens, and section styles are
   imported from `src/styles.css`, which imports `src/app/app.css`. The large
   stylesheet is intentionally global because Angular's component-style budget
