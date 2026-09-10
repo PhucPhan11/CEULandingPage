@@ -81,10 +81,24 @@ bilingual bio, initials, and an accent color. The allowed accent values are
 `green`, `orange`, `blue`, and `yellow`. Remove or omit a member's entry if the
 team no longer has permission to display it.
 
+## Brand assets
+
+The shared brand assets live in `public/ceu-img/` and are referenced through
+`src/app/shared/brand-assets.ts`:
+
+- `avatar.png` is the square mark used in the site header and footer.
+- `background.png` is the horizontal Can Tho Entixie Ultimate wordmark used in
+  the hero brand panel.
+
+Keep these files in the same folder when replacing them, preserve the filenames,
+and check the result at both desktop and mobile widths. Replace or add player
+photos separately in `public/assets/` only after receiving consent.
+
 ## Before launch
 
 - Replace sample copy, placeholder email/social URLs, and sample player data.
 - Confirm every name, score, venue, and contact link with the team.
-- Confirm photo permission for every image added to `public/assets/`.
+- Confirm photo permission for every image added to `public/assets/` or
+  `public/ceu-img/`.
 - Keep the sample notice until all public content is approved, then remove it
   from the `site.sampleNotice` values.

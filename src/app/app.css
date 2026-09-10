@@ -77,12 +77,19 @@ app-root {
   width: 38px;
   height: 38px;
   place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
   color: var(--orange);
 }
 
+.brand-mark img,
 .brand-mark svg {
   width: 100%;
   height: 100%;
+}
+
+.brand-mark img {
+  object-fit: cover;
 }
 
 .brand-copy {
@@ -368,8 +375,22 @@ app-root {
   min-height: 560px;
 }
 
+.hero-brand-image {
+  position: absolute;
+  z-index: 1;
+  top: 11%;
+  left: 0;
+  width: min(360px, 62%);
+  height: auto;
+  border: 1px solid rgba(247, 248, 242, 0.35);
+  border-radius: 18px;
+  box-shadow: 18px 22px 0 rgba(13, 43, 35, 0.3);
+  transform: rotate(-6deg);
+}
+
 .hero-sun {
   position: absolute;
+  z-index: 0;
   top: 8%;
   right: 10%;
   width: 55%;
@@ -1446,6 +1467,12 @@ app-root {
     min-height: 430px;
   }
 
+  .hero-brand-image {
+    top: 4%;
+    left: 4%;
+    width: 64%;
+  }
+
   .hero-sun {
     top: 3%;
     right: 16%;
@@ -1545,9 +1572,15 @@ app-root {
   }
 
   .hero-disc {
-    top: 12%;
+    top: 26%;
     right: 15%;
     width: min(245px, 64%);
+  }
+
+  .hero-brand-image {
+    top: 4%;
+    left: 1%;
+    width: 80%;
   }
 
   .hero-sun {
