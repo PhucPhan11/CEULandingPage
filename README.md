@@ -51,6 +51,7 @@ state, and active language. Page sections are standalone components under
 - `site-header`
 - `hero`
 - `about`
+- `jersey-gallery`
 - `schedule`
 - `roster`
 - `results`
@@ -60,7 +61,8 @@ state, and active language. Page sections are standalone components under
 `src/app/shared/localized-text.pipe.ts` handles bilingual text selection, while
 `src/app/shared/content-labels.ts` owns shared schedule/result labels. The
 editable content contract remains in `src/app/models/team-data.ts` and is loaded
-by `src/app/services/team-data.service.ts`.
+by `src/app/services/team-data.service.ts`. Fixed brand imagery, including the
+three jersey images, is centralized in `src/app/shared/brand-assets.ts`.
 
 ## Deployment
 

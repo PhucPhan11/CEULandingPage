@@ -14,6 +14,7 @@
 - [x] Set the supplied avatar image as the browser favicon and touch icon.
 - [x] Added reusable email, Instagram, Facebook, and YouTube icons to the footer contact links.
 - [x] Updated the design tokens and major surfaces to the jersey-inspired black, yellow, and gold palette.
+- [x] Added a responsive bilingual jersey gallery for `black.png`, `blackAndYellow.png`, and `yellow.png`, with accessible captions and navigation links.
 - [x] Added content maintenance documentation and GitHub Pages deployment workflow.
 - [x] Verified the production build, the `/CEULandingPage/` base-href build, and two focused Angular tests.
 - [x] Made the data request relative to the base href so GitHub Pages can serve `team-data.json` from the repository subpath.

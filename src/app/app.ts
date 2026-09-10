@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { AboutComponent } from './components/about/about.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { JerseyGalleryComponent } from './components/jersey-gallery/jersey-gallery.component';
 import { RecruitmentComponent } from './components/recruitment/recruitment.component';
 import { ResultsComponent } from './components/results/results.component';
 import { RosterComponent } from './components/roster/roster.component';
@@ -15,6 +16,7 @@ import { TeamDataService } from './services/team-data.service';
   imports: [
     AboutComponent,
     HeroComponent,
+    JerseyGalleryComponent,
     RecruitmentComponent,
     ResultsComponent,
     RosterComponent,
