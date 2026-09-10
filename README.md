@@ -42,6 +42,26 @@ npm test -- --watch=false
 
 The production build is emitted to `dist/ceu-landing-page/browser`.
 
+## Architecture
+
+The root `App` component only coordinates the data request, loading/error
+state, and active language. Page sections are standalone components under
+`src/app/components/`:
+
+- `site-header`
+- `hero`
+- `about`
+- `schedule`
+- `roster`
+- `results`
+- `recruitment`
+- `site-footer`
+
+`src/app/shared/localized-text.pipe.ts` handles bilingual text selection, while
+`src/app/shared/content-labels.ts` owns shared schedule/result labels. The
+editable content contract remains in `src/app/models/team-data.ts` and is loaded
+by `src/app/services/team-data.service.ts`.
+
 ## Deployment
 
 The workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)

@@ -1,0 +1,65 @@
+<section class="section section-dark schedule-section" id="schedule" aria-labelledby="schedule-title">
+  <div class="container">
+    <div class="section-intro split-intro split-intro-light">
+      <div>
+        <p class="eyebrow eyebrow-light">{{ { vi: '02 / Đường bay sắp tới', en: '02 / Next flights' } | localized: language }}</p>
+        <h2 id="schedule-title">{{ { vi: 'Lịch tập & thi đấu', en: 'Practice & play' } | localized: language }}</h2>
+      </div>
+      <p class="section-lede">
+        {{ {
+          vi: 'Gặp nhau trên sân, tập những điều mới và mang tinh thần đồng đội đi xa hơn.',
+          en: 'Meet on the field, learn something new, and carry the team spirit a little further.'
+        } | localized: language }}
+      </p>
+    </div>
+
+    <div class="schedule-list">
+      @for (item of items; track item.id; let index = $index) {
+        <article class="schedule-item">
+          <div class="schedule-date">
+            <span class="schedule-number">0{{ index + 1 }}</span>
+            <time [attr.datetime]="item.date">{{ item.dateLabel | localized: language }}</time>
+          </div>
+          <div class="schedule-main">
+            <div class="schedule-tag" [class.schedule-tag-match]="item.kind === 'match'">
+              <span class="tag-dot" aria-hidden="true"></span>
+              {{ scheduleLabel(item.kind) | localized: language }}
+            </div>
+            <h3>{{ item.title | localized: language }}</h3>
+            @if (item.opponent) {
+              <p class="schedule-opponent">
+                {{ { vi: 'vs', en: 'vs' } | localized: language }} <strong>{{ item.opponent }}</strong>
+              </p>
+            }
+            @if (item.note) {
+              <p class="schedule-note">{{ item.note | localized: language }}</p>
+            }
+          </div>
+          <div class="schedule-meta">
+            <span class="meta-line">
+              <span class="meta-icon" aria-hidden="true">◷</span>
+              {{ item.time }}
+            </span>
+            <span class="meta-line">
+              <span class="meta-icon" aria-hidden="true">⌖</span>
+              <span>
+                {{ item.location | localized: language }}
+                <small>{{ item.address | localized: language }}</small>
+              </span>
+            </span>
+            @if (item.mapUrl) {
+              <a class="schedule-map" [href]="item.mapUrl" target="_blank" rel="noopener">
+                {{ { vi: 'Mở bản đồ', en: 'Open map' } | localized: language }} <span aria-hidden="true">↗</span>
+              </a>
+            }
+          </div>
+        </article>
+      } @empty {
+        <div class="empty-state">
+          <span aria-hidden="true">◌</span>
+          <p>{{ { vi: 'Chưa có lịch sắp tới.', en: 'No upcoming events yet.' } | localized: language }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

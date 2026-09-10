@@ -1,0 +1,63 @@
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-grid container">
+    <div class="hero-copy">
+      <p class="eyebrow eyebrow-light">
+        <span class="eyebrow-dot" aria-hidden="true"></span>
+        {{ site.eyebrow | localized: language }}
+      </p>
+      <h1 id="hero-title">{{ site.title | localized: language }}</h1>
+      <p class="hero-description">{{ site.description | localized: language }}</p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#join">
+          {{ { vi: 'Chơi cùng chúng mình', en: 'Play with us' } | localized: language }}
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a class="text-link text-link-light" href="#schedule">
+          {{ { vi: 'Xem lịch tập', en: 'See the schedule' } | localized: language }}
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <div class="hero-footnote">
+        <span class="status-pulse" aria-hidden="true"></span>
+        <span>{{ { vi: 'Đang nhận thành viên mới', en: 'Welcoming new players' } | localized: language }}</span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label="Abstract flying disc illustration" role="img">
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="hero-sun"></div>
+      <div class="hero-disc">
+        <div class="disc-line disc-line-one"></div>
+        <div class="disc-line disc-line-two"></div>
+        <span>ENTIXIE</span>
+      </div>
+      <div class="hero-star star-one">✦</div>
+      <div class="hero-star star-two">✦</div>
+      <div class="hero-label hero-label-top">
+        <span>13°</span>
+        <small>{{ { vi: 'góc bay', en: 'flight angle' } | localized: language }}</small>
+      </div>
+      <div class="hero-label hero-label-bottom">
+        <span>09</span>
+        <small>{{ { vi: 'năng lượng', en: 'energy' } | localized: language }}</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-ticker" aria-label="Team highlights">
+    <div class="ticker-track">
+      <span>SPIRIT OF THE GAME</span>
+      <b>✦</b>
+      <span>CAN THO / VIETNAM</span>
+      <b>✦</b>
+      <span>KEEP IT FLYING</span>
+      <b>✦</b>
+      <span>SPIRIT OF THE GAME</span>
+      <b>✦</b>
+      <span>CAN THO / VIETNAM</span>
+    </div>
+  </div>
+</section>

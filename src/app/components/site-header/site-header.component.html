@@ -1,0 +1,50 @@
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="presentation">
+          <circle cx="24" cy="24" r="21" fill="currentColor" />
+          <path d="M8 24c9-7 23-9 32-3" fill="none" stroke="#f7f8f2" stroke-width="3" stroke-linecap="round" />
+          <path d="M12 31c8 2 16 2 24-2" fill="none" stroke="#ffce58" stroke-width="3" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="brand-copy">
+        <strong>ENTIXIE</strong>
+        <span>Ultimate / Cần Thơ</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="#about">{{ { vi: 'Về đội', en: 'About' } | localized: language }}</a>
+      <a href="#schedule">{{ { vi: 'Lịch', en: 'Schedule' } | localized: language }}</a>
+      <a href="#roster">{{ { vi: 'Đội hình', en: 'Roster' } | localized: language }}</a>
+      <a href="#results">{{ { vi: 'Kết quả', en: 'Results' } | localized: language }}</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="language-switcher" role="group" [attr.aria-label]="language === 'vi' ? 'Chọn ngôn ngữ' : 'Choose language'">
+        <button
+          type="button"
+          [class.is-active]="language === 'vi'"
+          [attr.aria-pressed]="language === 'vi'"
+          (click)="selectLanguage('vi')"
+        >
+          VI
+        </button>
+        <span aria-hidden="true">/</span>
+        <button
+          type="button"
+          [class.is-active]="language === 'en'"
+          [attr.aria-pressed]="language === 'en'"
+          (click)="selectLanguage('en')"
+        >
+          EN
+        </button>
+      </div>
+      <a class="button button-small button-dark" href="#join">
+        {{ { vi: 'Tuyển quân', en: 'Join us' } | localized: language }}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,53 @@
+<section class="section section-light about-section" id="about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="section-intro split-intro">
+      <div>
+        <p class="eyebrow">{{ { vi: '01 / Tụi mình là ai', en: '01 / Who we are' } | localized: language }}</p>
+        <h2 id="about-title">{{ { vi: 'Một đội nhỏ, một sân chơi rộng.', en: 'A small team with a wide-open field.' } | localized: language }}</h2>
+      </div>
+      <p class="section-lede">
+        {{ {
+          vi: 'Entixie bắt đầu từ những người bạn muốn vận động, muốn kết nối và muốn thử một môn thể thao thật khác. Ở đây, mọi đường bay đều bắt đầu bằng một lời gọi.',
+          en: 'Entixie started with friends who wanted to move, connect, and try a sport that feels different. Here, every flight begins with a simple call.'
+        } | localized: language }}
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-statement">
+        <span class="display-mark" aria-hidden="true">01</span>
+        <p>
+          {{ {
+            vi: 'Chúng mình chơi Ultimate Frisbee bằng cả cơ thể và tinh thần: chạy nhanh, ném đẹp, cười nhiều và luôn để lại sân chơi tốt hơn lúc bước vào.',
+            en: 'We play Ultimate Frisbee with our whole bodies and spirits: run fast, throw beautifully, laugh often, and leave the field better than we found it.'
+          } | localized: language }}
+        </p>
+        <a class="text-link" href="#join">
+          {{ { vi: 'Tìm hiểu cách tham gia', en: 'Find your way in' } | localized: language }}
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="stats-grid">
+        @for (stat of site.stats; track stat.label.vi) {
+          <div class="stat-card">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label | localized: language }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="values-grid">
+      @for (value of site.values; track value.title.vi; let index = $index) {
+        <article class="value-card">
+          <div class="value-card-top">
+            <span class="value-index">0{{ index + 1 }}</span>
+            <span class="value-icon" aria-hidden="true">{{ value.icon }}</span>
+          </div>
+          <h3>{{ value.title | localized: language }}</h3>
+          <p>{{ value.description | localized: language }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

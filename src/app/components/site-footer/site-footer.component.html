@@ -1,0 +1,40 @@
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a class="brand brand-footer" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="presentation">
+            <circle cx="24" cy="24" r="21" fill="currentColor" />
+            <path d="M8 24c9-7 23-9 32-3" fill="none" stroke="#17352e" stroke-width="3" stroke-linecap="round" />
+            <path d="M12 31c8 2 16 2 24-2" fill="none" stroke="#ffce58" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>{{ site.shortName }}</strong>
+          <span>Ultimate / {{ site.location | localized: language }}</span>
+        </span>
+      </a>
+      <p>{{ { vi: 'Giữ đĩa bay. Giữ tinh thần.', en: 'Keep the disc flying. Keep the spirit.' } | localized: language }}</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <span class="footer-label">{{ { vi: 'Điều hướng', en: 'Explore' } | localized: language }}</span>
+        <a href="#about">{{ { vi: 'Về đội', en: 'About' } | localized: language }}</a>
+        <a href="#schedule">{{ { vi: 'Lịch tập', en: 'Schedule' } | localized: language }}</a>
+        <a href="#roster">{{ { vi: 'Đội hình', en: 'Roster' } | localized: language }}</a>
+      </div>
+      <div>
+        <span class="footer-label">{{ { vi: 'Kết nối', en: 'Connect' } | localized: language }}</span>
+        <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+        @for (social of contact.socials; track social.label) {
+          <a [href]="social.url" target="_blank" rel="noopener">{{ social.label }} <span aria-hidden="true">↗</span></a>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 CanTho Entixie Ultimate</span>
+    <span>{{ { vi: 'Một đội địa phương, một tinh thần lớn.', en: 'A local team with a big spirit.' } | localized: language }}</span>
+    <span>Made with ✦ in Cần Thơ</span>
+  </div>
+</footer>

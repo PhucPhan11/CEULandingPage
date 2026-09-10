@@ -1,0 +1,41 @@
+<section class="section section-sand roster-section" id="roster" aria-labelledby="roster-title">
+  <div class="container">
+    <div class="section-intro split-intro">
+      <div>
+        <p class="eyebrow">{{ { vi: '03 / Những người làm nên đội', en: '03 / The people in flight' } | localized: language }}</p>
+        <h2 id="roster-title">{{ { vi: 'Đội hình', en: 'The roster' } | localized: language }}</h2>
+      </div>
+      <p class="section-lede">
+        {{ {
+          vi: 'Mỗi người một nhịp chạy, một góc nhìn và một câu chuyện. Cùng nhau, chúng mình tạo nên đường bay của Entixie.',
+          en: 'Every player brings a different rhythm, view, and story. Together, we create Entixie’s flight path.'
+        } | localized: language }}
+      </p>
+    </div>
+
+    <div class="roster-grid">
+      @for (member of members; track member.id) {
+        <article class="member-card" [class]="'member-card accent-' + member.accent">
+          <div class="member-avatar" [class.has-photo]="member.photo">
+            @if (member.photo) {
+              <img [src]="member.photo" [alt]="member.name" loading="lazy" />
+            } @else {
+              <span>{{ member.initials }}</span>
+            }
+            <span class="member-number">{{ member.number }}</span>
+          </div>
+          <div class="member-info">
+            <p class="member-role">{{ member.role | localized: language }}</p>
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.bio | localized: language }}</p>
+          </div>
+        </article>
+      } @empty {
+        <div class="empty-state empty-state-dark">
+          <span aria-hidden="true">✦</span>
+          <p>{{ { vi: 'Đội hình đang được cập nhật.', en: 'The roster is being updated.' } | localized: language }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

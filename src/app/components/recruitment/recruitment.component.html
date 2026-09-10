@@ -1,0 +1,23 @@
+<section class="join-section" id="join" aria-labelledby="join-title">
+  <div class="join-orbit join-orbit-one" aria-hidden="true"></div>
+  <div class="join-orbit join-orbit-two" aria-hidden="true"></div>
+  <div class="container join-inner">
+    <div>
+      <p class="eyebrow eyebrow-light">{{ content.eyebrow | localized: language }}</p>
+      <h2 id="join-title">{{ content.title | localized: language }}</h2>
+      <p class="join-description">{{ content.description | localized: language }}</p>
+      <a class="button button-light" [href]="content.buttonUrl">
+        {{ content.buttonLabel | localized: language }}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <ul class="join-details">
+      @for (detail of content.details; track detail.vi) {
+        <li>
+          <span aria-hidden="true">✦</span>
+          {{ detail | localized: language }}
+        </li>
+      }
+    </ul>
+  </div>
+</section>

@@ -1,11 +1,28 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
+import { AboutComponent } from './components/about/about.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { RecruitmentComponent } from './components/recruitment/recruitment.component';
+import { ResultsComponent } from './components/results/results.component';
+import { RosterComponent } from './components/roster/roster.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
+import { SiteFooterComponent } from './components/site-footer/site-footer.component';
+import { SiteHeaderComponent } from './components/site-header/site-header.component';
+import { Language, TeamData } from './models/team-data';
 import { TeamDataService } from './services/team-data.service';
-import { Language, LocalizedText, ResultOutcome, ScheduleKind, TeamData } from './models/team-data';
 
 @Component({
+  imports: [
+    AboutComponent,
+    HeroComponent,
+    RecruitmentComponent,
+    ResultsComponent,
+    RosterComponent,
+    ScheduleComponent,
+    SiteFooterComponent,
+    SiteHeaderComponent,
+  ],
   selector: 'app-root',
-  styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
@@ -21,41 +38,9 @@ export class App {
     this.loadData();
   }
 
-  protected text(value: LocalizedText): string {
-    return value[this.language()] || value.vi || value.en;
-  }
-
   protected setLanguage(language: Language): void {
     this.language.set(language);
     this.document.documentElement.lang = language;
-  }
-
-  protected scheduleLabel(kind: ScheduleKind): string {
-    const labels: Record<ScheduleKind, LocalizedText> = {
-      practice: { vi: 'Tập luyện', en: 'Practice' },
-      match: { vi: 'Thi đấu', en: 'Match' },
-    };
-
-    return this.text(labels[kind]);
-  }
-
-  protected outcomeLabel(outcome: ResultOutcome): string {
-    const labels: Record<ResultOutcome, LocalizedText> = {
-      win: { vi: 'Thắng', en: 'Win' },
-      loss: { vi: 'Thua', en: 'Loss' },
-      draw: { vi: 'Hòa', en: 'Draw' },
-    };
-
-    return this.text(labels[outcome]);
-  }
-
-  protected outcomeSymbol(outcome: ResultOutcome): string {
-    return outcome === 'win' ? 'W' : outcome === 'loss' ? 'L' : 'D';
-  }
-
-  protected scrollTo(event: Event, target: string): void {
-    event.preventDefault();
-    document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   private loadData(): void {

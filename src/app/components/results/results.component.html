@@ -1,0 +1,58 @@
+<section class="section section-light results-section" id="results" aria-labelledby="results-title">
+  <div class="container">
+    <div class="section-intro split-intro">
+      <div>
+        <p class="eyebrow">{{ { vi: '04 / Những trận đấu đã qua', en: '04 / Recent flight logs' } | localized: language }}</p>
+        <h2 id="results-title">{{ { vi: 'Kết quả gần đây', en: 'Recent results' } | localized: language }}</h2>
+      </div>
+      <p class="section-lede">
+        {{ {
+          vi: 'Điểm số là một phần của câu chuyện. Điều quan trọng hơn là cách chúng mình đã chơi cùng nhau.',
+          en: 'The score is one part of the story. What matters more is how we played together.'
+        } | localized: language }}
+      </p>
+    </div>
+
+    <div class="results-layout">
+      <div class="results-record">
+        <span class="record-label">{{ { vi: 'Mùa giải mẫu', en: 'Sample season' } | localized: language }}</span>
+        <div class="record-score">
+          <strong>{{ results.length }}</strong>
+          <span>{{ { vi: 'trận đã ghi', en: 'games logged' } | localized: language }}</span>
+        </div>
+        <div class="record-bars" aria-hidden="true">
+          @for (result of results; track result.id) {
+            <span [class]="'record-bar record-' + result.outcome"></span>
+          }
+        </div>
+        <p>{{ { vi: 'Thắng, thua hay hòa - luôn có điều mới để học.', en: 'Win, lose, or draw - there is always something new to learn.' } | localized: language }}</p>
+      </div>
+
+      <div class="results-list">
+        @for (result of results; track result.id) {
+          <article class="result-item">
+            <div class="result-date">
+              <time [attr.datetime]="result.date">{{ result.dateLabel | localized: language }}</time>
+              <span>{{ result.competition | localized: language }}</span>
+            </div>
+            <div class="result-matchup">
+              <span>ENTIXIE</span>
+              <strong>{{ result.teamScore }} <small>—</small> {{ result.opponentScore }}</strong>
+              <span>{{ result.opponent }}</span>
+            </div>
+            <div class="result-status" [class]="'result-status status-' + result.outcome">
+              <span class="result-symbol" aria-hidden="true">{{ outcomeSymbol(result.outcome) }}</span>
+              <span>{{ outcomeLabel(result.outcome) | localized: language }}</span>
+            </div>
+            <p class="result-highlight">{{ result.highlight | localized: language }}</p>
+          </article>
+        } @empty {
+          <div class="empty-state">
+            <span aria-hidden="true">◌</span>
+            <p>{{ { vi: 'Chưa có kết quả nào.', en: 'No results have been logged yet.' } | localized: language }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
