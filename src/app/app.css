@@ -681,6 +681,7 @@ app-root {
   color: var(--ink-soft);
   font-size: 15px;
   line-height: 1.75;
+  text-wrap: balance;
 }
 
 .stats-grid {
@@ -768,6 +769,7 @@ app-root {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 19px;
   letter-spacing: -0.04em;
+  white-space: nowrap;
 }
 
 .value-card p {

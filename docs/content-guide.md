@@ -142,7 +142,7 @@ The shared brand assets live in `public/ceu-img/` and are referenced through
 - `background.png` is the horizontal Can Tho Entixie Ultimate wordmark used in
   the hero brand panel.
 - `black.png`, `blackAndYellow.png`, and `yellow.png` are the jersey images
-  shown in the responsive “Màu áo của Entixie / The Entixie kit” gallery.
+  shown in the responsive “Màu áo của CEU / The CEU kit” gallery.
 
 Keep these files in the same folder when replacing them, preserve the filenames,
 and check the result at both desktop and mobile widths. Jersey images are
