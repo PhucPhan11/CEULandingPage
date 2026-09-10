@@ -60,7 +60,9 @@ npm run watch
   wordmark/background, and jersey images rather than repeating asset paths.
 - Recent event photos, backgrounds, and opponent/event logos live in
   `public/ceu-img/events/` and are referenced by the `events` data collection
-  with `ceu-img/...` paths.
+  with `ceu-img/...` paths. Host clubs use `host` and `hostLogo`; multi-day
+  events use `endDate` and `endDateLabel`; poster-style images can use
+  `fit: "contain"`.
 - Global layout, responsive behavior, design tokens, and section styles are
   imported from `src/styles.css`, which imports `src/app/app.css`. The large
   stylesheet is intentionally global because Angular's component-style budget

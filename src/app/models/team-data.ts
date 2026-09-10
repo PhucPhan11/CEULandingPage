@@ -72,15 +72,20 @@ export interface MatchResult {
 export interface RecentEventImage {
   src: string;
   alt: LocalizedText;
+  fit?: 'cover' | 'contain';
 }
 
 export interface RecentEvent {
   id: string;
   date: string;
+  endDate?: string;
   dateLabel: LocalizedText;
+  endDateLabel?: LocalizedText;
   title: LocalizedText;
   opponent?: string;
   opponentLogo?: string;
+  host?: string;
+  hostLogo?: string;
   eventLogo?: string;
   background?: string;
   images: RecentEventImage[];

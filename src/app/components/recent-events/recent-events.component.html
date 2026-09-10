@@ -31,41 +31,63 @@
             <div>
               <p class="event-date">
                 <time [attr.datetime]="event.date">{{ event.dateLabel | localized: language }}</time>
+                @if (event.endDate && event.endDateLabel) {
+                  <span aria-hidden="true"> – </span>
+                  <time [attr.datetime]="event.endDate">{{ event.endDateLabel | localized: language }}</time>
+                }
               </p>
               <h3>{{ event.title | localized: language }}</h3>
             </div>
-            @if (event.opponentLogo && event.opponent) {
-              <div
-                class="event-matchup"
-                [attr.aria-label]="language === 'vi' ? 'Các đội tham gia' : 'Teams'"
-              >
-                <div class="event-team">
-                  <div class="event-team-logo">
-                    <img
-                      [src]="brandAssets.avatar"
-                      [alt]="language === 'vi' ? 'Logo CanTho Entixie Ultimate' : 'CanTho Entixie Ultimate logo'"
-                    />
+            @if (event.eventLogo || (event.opponentLogo && event.opponent) || (event.hostLogo && event.host)) {
+              <div class="event-header-visuals">
+                @if (event.eventLogo) {
+                  <div class="event-feature-logo">
+                    <img [src]="event.eventLogo" [alt]="event.title | localized: language" />
                   </div>
-                  <span>CEU</span>
-                </div>
-                <span class="event-versus" aria-hidden="true">×</span>
-                <div class="event-team">
-                  <div class="event-team-logo event-opponent-logo">
-                    <img [src]="event.opponentLogo" [alt]="event.opponent + ' logo'" />
+                }
+                @if (event.opponentLogo && event.opponent) {
+                  <div
+                    class="event-matchup"
+                    [attr.aria-label]="language === 'vi' ? 'Các đội tham gia' : 'Teams'"
+                  >
+                    <div class="event-team">
+                      <div class="event-team-logo">
+                        <img
+                          [src]="brandAssets.avatar"
+                          [alt]="language === 'vi' ? 'Logo CanTho Entixie Ultimate' : 'CanTho Entixie Ultimate logo'"
+                        />
+                      </div>
+                      <span>CEU</span>
+                    </div>
+                    <span class="event-versus" aria-hidden="true">×</span>
+                    <div class="event-team">
+                      <div class="event-team-logo event-opponent-logo">
+                        <img [src]="event.opponentLogo" [alt]="event.opponent + ' logo'" />
+                      </div>
+                      <span>{{ event.opponent }}</span>
+                    </div>
                   </div>
-                  <span>{{ event.opponent }}</span>
-                </div>
-              </div>
-            } @else if (event.eventLogo) {
-              <div class="event-feature-logo">
-                <img [src]="event.eventLogo" [alt]="event.title | localized: language" />
+                } @else if (event.hostLogo && event.host) {
+                  <div
+                    class="event-host"
+                    [attr.aria-label]="language === 'vi' ? 'Đơn vị tổ chức' : 'Event host'"
+                  >
+                    <div class="event-team-logo event-host-logo">
+                      <img [src]="event.hostLogo" [alt]="event.host + ' logo'" />
+                    </div>
+                    <span class="event-host-label">
+                      {{ { vi: 'Đơn vị tổ chức', en: 'Hosted by' } | localized: language }}
+                    </span>
+                    <span>{{ event.host }}</span>
+                  </div>
+                }
               </div>
             }
           </div>
 
           <div class="event-gallery">
             @for (image of event.images; track image.src) {
-              <figure class="event-image">
+              <figure class="event-image" [class.event-image-contain]="image.fit === 'contain'">
                 <img
                   [src]="image.src"
                   [alt]="image.alt | localized: language"

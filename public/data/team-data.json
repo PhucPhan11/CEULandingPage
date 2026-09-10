@@ -362,6 +362,90 @@
           }
         }
       ]
+    },
+    {
+      "id": "loi-choi-run-2026",
+      "date": "2026-07-15",
+      "endDate": "2026-08-09",
+      "dateLabel": {
+        "vi": "15/07/2026",
+        "en": "July 15, 2026"
+      },
+      "endDateLabel": {
+        "vi": "09/08/2026",
+        "en": "August 9, 2026"
+      },
+      "title": {
+        "vi": "LOI CHOI RUN",
+        "en": "LOI CHOI RUN"
+      },
+      "images": [
+        {
+          "src": "ceu-img/events/loi-choi-run-01.png",
+          "fit": "contain",
+          "alt": {
+            "vi": "Ảnh 1 của CEU trong sự kiện chạy trực tuyến LOI CHOI RUN",
+            "en": "Photo 1 of CEU during the LOI CHOI RUN online event"
+          }
+        },
+        {
+          "src": "ceu-img/events/loi-choi-run-02.png",
+          "fit": "contain",
+          "alt": {
+            "vi": "Ảnh 2 của CEU trong sự kiện chạy trực tuyến LOI CHOI RUN",
+            "en": "Photo 2 of CEU during the LOI CHOI RUN online event"
+          }
+        },
+        {
+          "src": "ceu-img/events/loi-choi-run-03.png",
+          "fit": "contain",
+          "alt": {
+            "vi": "Ảnh 3 của CEU trong sự kiện chạy trực tuyến LOI CHOI RUN",
+            "en": "Photo 3 of CEU during the LOI CHOI RUN online event"
+          }
+        },
+        {
+          "src": "ceu-img/events/loi-choi-run-04.png",
+          "fit": "contain",
+          "alt": {
+            "vi": "Ảnh 4 của CEU trong sự kiện chạy trực tuyến LOI CHOI RUN",
+            "en": "Photo 4 of CEU during the LOI CHOI RUN online event"
+          }
+        }
+      ]
+    },
+    {
+      "id": "seacup5-2026",
+      "date": "2026-08-29",
+      "dateLabel": {
+        "vi": "29/08/2026",
+        "en": "August 29, 2026"
+      },
+      "title": {
+        "vi": "THAM GIA SEACUP5",
+        "en": "PARTICIPATING IN SEACUP5"
+      },
+      "host": "NTSEA Ultimate Club",
+      "hostLogo": "ceu-img/events/seacup5-ntsea-logo.png",
+      "eventLogo": "ceu-img/events/seacup5-event-logo.png",
+      "images": [
+        {
+          "src": "ceu-img/events/seacup5-team-photo-01.png",
+          "fit": "contain",
+          "alt": {
+            "vi": "Đội CEU tham gia SEACUP5 cùng các đội Ultimate",
+            "en": "The CEU team at SEACUP5 with fellow Ultimate teams"
+          }
+        },
+        {
+          "src": "ceu-img/events/seacup5-team-photo-02.jpg",
+          "fit": "contain",
+          "alt": {
+            "vi": "Đội hình CEU tại SEACUP5",
+            "en": "The CEU squad at SEACUP5"
+          }
+        }
+      ]
     }
   ],
   "recruitment": {

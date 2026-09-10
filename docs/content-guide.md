@@ -68,9 +68,12 @@ with `ceu-img/`. Keep event image alt text bilingual and avoid publishing
 photos without the required consent.
 
 The event card is intended for match memories and photo galleries; use
-`opponent`/`opponentLogo` for head-to-head events or `eventLogo`/`background`
-for tournaments and festivals. Keep scorelines in the separate `results` array
-when a result is available.
+`opponent`/`opponentLogo` for head-to-head events, `host`/`hostLogo` for the
+organizing club, or `eventLogo`/`background` for tournaments and festivals.
+Keep scorelines in the separate `results` array when a result is available.
+For a multi-day event, use `endDate` and `endDateLabel` alongside the starting
+`date` and `dateLabel`. Set an image's optional `fit` to `contain` when the
+complete poster or graphic must remain visible; the default is `cover`.
 
 ## Adding a schedule item
 

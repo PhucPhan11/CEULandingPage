@@ -40,7 +40,8 @@ describe('App', () => {
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('Cộng đồng Cơ Đốc');
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Gây dựng');
     expect(compiled.querySelector('.event-card h3')?.textContent).toContain('Giao hữu CEU');
-    expect(compiled.querySelectorAll('.event-card')).toHaveLength(2);
+    const eventCards = compiled.querySelectorAll('.event-card');
+    expect(eventCards).toHaveLength(4);
     expect(compiled.querySelector('.event-background')).toBeTruthy();
     expect(compiled.textContent).toContain('Giải Southwest Hat');
     expect(compiled.querySelector('.event-background img')?.getAttribute('src'))
@@ -49,6 +50,24 @@ describe('App', () => {
       .toBe('ceu-img/events/southwest-hat-2024-logo.png');
     expect(compiled.querySelector('img[alt="Ảnh giải đấu"]')?.getAttribute('src'))
       .toBe('ceu-img/events/southwest-hat-2024-match.png');
+    const loiChoiCard = eventCards[2] as HTMLElement;
+    expect(loiChoiCard.textContent).toContain('LOI CHOI RUN');
+    expect(loiChoiCard.querySelectorAll('time')).toHaveLength(2);
+    expect(loiChoiCard.querySelector('time')?.getAttribute('datetime')).toBe('2026-07-15');
+    expect(loiChoiCard.querySelectorAll('time')[1].getAttribute('datetime')).toBe('2026-08-09');
+    expect(loiChoiCard.querySelectorAll('.event-image-contain')).toHaveLength(4);
+    expect(loiChoiCard.querySelectorAll('img')[3].getAttribute('src'))
+      .toBe('ceu-img/events/loi-choi-run-04.png');
+    const seacupCard = eventCards[3] as HTMLElement;
+    expect(seacupCard.textContent).toContain('THAM GIA SEACUP5');
+    expect(seacupCard.textContent).toContain('NTSEA Ultimate Club');
+    expect(seacupCard.querySelector('.event-host img')?.getAttribute('src'))
+      .toBe('ceu-img/events/seacup5-ntsea-logo.png');
+    expect(seacupCard.querySelector('.event-feature-logo img')?.getAttribute('src'))
+      .toBe('ceu-img/events/seacup5-event-logo.png');
+    expect(seacupCard.querySelectorAll('.event-image-contain')).toHaveLength(2);
+    expect(seacupCard.querySelectorAll('img')[3].getAttribute('src'))
+      .toBe('ceu-img/events/seacup5-team-photo-02.jpg');
 
     const englishButton = compiled.querySelector('button:last-of-type') as HTMLButtonElement;
     englishButton.click();
@@ -58,8 +77,10 @@ describe('App', () => {
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('A Christian community');
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Build. Train. Share.');
     expect(compiled.querySelector('.event-card h3')?.textContent).toContain('CEU friendly match');
-    expect(compiled.querySelectorAll('.event-feature-logo')).toHaveLength(1);
+    expect(compiled.querySelectorAll('.event-feature-logo')).toHaveLength(2);
     expect(compiled.textContent).toContain('Southwest Hat tournament');
+    expect(compiled.textContent).toContain('LOI CHOI RUN');
+    expect(compiled.textContent).toContain('PARTICIPATING IN SEACUP5');
   });
 });
 
@@ -114,6 +135,75 @@ const sampleTeamData: TeamData = {
         {
           src: 'ceu-img/events/southwest-hat-2024-match.png',
           alt: { vi: 'Ảnh giải đấu', en: 'Tournament photo' },
+        },
+      ],
+    },
+    {
+      id: 'event-3',
+      date: '2026-07-15',
+      endDate: '2026-08-09',
+      dateLabel: { vi: '15/07/2026', en: 'July 15, 2026' },
+      endDateLabel: { vi: '09/08/2026', en: 'August 9, 2026' },
+      title: { vi: 'LOI CHOI RUN', en: 'LOI CHOI RUN' },
+      images: [
+        {
+          src: 'ceu-img/events/loi-choi-run-01.png',
+          fit: 'contain',
+          alt: {
+            vi: 'Ảnh 1 LOI CHOI RUN',
+            en: 'LOI CHOI RUN photo 1',
+          },
+        },
+        {
+          src: 'ceu-img/events/loi-choi-run-02.png',
+          fit: 'contain',
+          alt: {
+            vi: 'Ảnh 2 LOI CHOI RUN',
+            en: 'LOI CHOI RUN photo 2',
+          },
+        },
+        {
+          src: 'ceu-img/events/loi-choi-run-03.png',
+          fit: 'contain',
+          alt: {
+            vi: 'Ảnh 3 LOI CHOI RUN',
+            en: 'LOI CHOI RUN photo 3',
+          },
+        },
+        {
+          src: 'ceu-img/events/loi-choi-run-04.png',
+          fit: 'contain',
+          alt: {
+            vi: 'Ảnh 4 LOI CHOI RUN',
+            en: 'LOI CHOI RUN photo 4',
+          },
+        },
+      ],
+    },
+    {
+      id: 'event-4',
+      date: '2026-08-29',
+      dateLabel: { vi: '29/08/2026', en: 'August 29, 2026' },
+      title: { vi: 'THAM GIA SEACUP5', en: 'PARTICIPATING IN SEACUP5' },
+      host: 'NTSEA Ultimate Club',
+      hostLogo: 'ceu-img/events/seacup5-ntsea-logo.png',
+      eventLogo: 'ceu-img/events/seacup5-event-logo.png',
+      images: [
+        {
+          src: 'ceu-img/events/seacup5-team-photo-01.png',
+          fit: 'contain',
+          alt: {
+            vi: 'Đội CEU tham gia SEACUP5 cùng các đội Ultimate',
+            en: 'The CEU team at SEACUP5 with fellow Ultimate teams',
+          },
+        },
+        {
+          src: 'ceu-img/events/seacup5-team-photo-02.jpg',
+          fit: 'contain',
+          alt: {
+            vi: 'Đội hình CEU tại SEACUP5',
+            en: 'The CEU squad at SEACUP5',
+          },
         },
       ],
     },
