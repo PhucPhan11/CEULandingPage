@@ -27,6 +27,7 @@
 - [x] Sorted recent events newest first by their ISO event date.
 - [x] Matched the Southwest Hat gallery to the friendly-match layout with two images in one desktop row.
 - [x] Improved responsive hero headline wrapping and widened the tablet copy measure to avoid an orphaned final word.
+- [x] Updated the header brand block to display CAN THO ENTIXIE / ULTIMATE.
 - [x] Scanned the repository and expanded `.github/copilot-instructions.md` with verified architecture, data-flow, build-budget, testing, and maintenance guidance.
 - [x] Added the seven evidence-backed reference documents under `docs/codebase/`.
 - [x] Added content maintenance documentation and GitHub Pages deployment workflow.

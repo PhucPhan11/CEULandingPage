@@ -36,6 +36,9 @@ describe('App', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.site-header .brand-copy')?.textContent).toContain(
+      'CAN THO ENTIXIE',
+    );
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Ném đĩa');
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('Cộng đồng Cơ Đốc');
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Gây dựng');
