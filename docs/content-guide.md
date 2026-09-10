@@ -52,6 +52,11 @@ paragraphs. Every item must include both `vi` and `en` values.
 ]
 ```
 
+The `site.values` array powers the three CEU mission cards beneath the team
+introduction. Keep the order as camaraderie, physical training, and Christian
+sports spirit unless the team intentionally changes the mission structure.
+Each card needs a bilingual `title` and `description`, plus its display `icon`.
+
 ## Adding a schedule item
 
 Copy an existing item in the `schedule` array and update:

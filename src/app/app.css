@@ -761,7 +761,7 @@ app-root {
   font-size: 17px;
 }
 
-.value-card h3 {
+.value-card h4 {
   margin: 0 0 10px;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 19px;
@@ -774,6 +774,33 @@ app-root {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.65;
+}
+
+.mission-block {
+  margin-top: 78px;
+}
+
+.mission-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 23px;
+}
+
+.mission-heading .eyebrow {
+  margin-bottom: 0;
+}
+
+.mission-heading h3 {
+  max-width: 450px;
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.9rem, 3.6vw, 3.2rem);
+  letter-spacing: -0.07em;
+  line-height: 0.98;
+  text-align: right;
 }
 
 .jersey-section {
@@ -1779,6 +1806,21 @@ app-contact-icon {
   .about-grid {
     gap: 45px;
     padding: 29px 0 62px;
+  }
+
+  .mission-block {
+    margin-top: 57px;
+  }
+
+  .mission-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  .mission-heading h3 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    text-align: left;
   }
 
   .stats-grid {

@@ -35,17 +35,23 @@
       </div>
     </div>
 
-    <div class="values-grid">
-      @for (value of site.values; track value.title.vi; let index = $index) {
-        <article class="value-card">
-          <div class="value-card-top">
-            <span class="value-index">0{{ index + 1 }}</span>
-            <span class="value-icon" aria-hidden="true">{{ value.icon }}</span>
-          </div>
-          <h3>{{ value.title | localized: language }}</h3>
-          <p>{{ value.description | localized: language }}</p>
-        </article>
-      }
+    <div class="mission-block" aria-labelledby="mission-title">
+      <div class="mission-heading">
+        <p class="eyebrow">{{ { vi: 'Sứ mạng của CEU', en: "CEU's mission" } | localized: language }}</p>
+        <h3 id="mission-title">{{ { vi: 'Gây dựng. Rèn luyện. Lan tỏa.', en: 'Build. Train. Share.' } | localized: language }}</h3>
+      </div>
+      <div class="values-grid">
+        @for (value of site.values; track value.title.vi; let index = $index) {
+          <article class="value-card">
+            <div class="value-card-top">
+              <span class="value-index">0{{ index + 1 }}</span>
+              <span class="value-icon" aria-hidden="true">{{ value.icon }}</span>
+            </div>
+            <h4>{{ value.title | localized: language }}</h4>
+            <p>{{ value.description | localized: language }}</p>
+          </article>
+        }
+      </div>
     </div>
   </div>
 </section>

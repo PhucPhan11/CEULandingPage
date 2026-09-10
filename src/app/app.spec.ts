@@ -38,6 +38,7 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Ném đĩa');
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('Cộng đồng Cơ Đốc');
+    expect(compiled.querySelector('#mission-title')?.textContent).toContain('Gây dựng');
 
     const englishButton = compiled.querySelector('button:last-of-type') as HTMLButtonElement;
     englishButton.click();
@@ -45,6 +46,7 @@ describe('App', () => {
 
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Throw together');
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('A Christian community');
+    expect(compiled.querySelector('#mission-title')?.textContent).toContain('Build. Train. Share.');
   });
 });
 
@@ -62,7 +64,13 @@ const sampleTeamData: TeamData = {
     ],
     sampleNotice: { vi: 'Mẫu', en: 'Sample' },
     stats: [],
-    values: [],
+    values: [
+      {
+        icon: '✦',
+        title: { vi: 'Gây dựng tình thân', en: 'Building camaraderie' },
+        description: { vi: 'Kết nối', en: 'Connect' },
+      },
+    ],
   },
   schedule: [],
   roster: [],
