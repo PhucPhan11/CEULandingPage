@@ -46,7 +46,9 @@ npm run watch
   breaks the `/CEULandingPage/` GitHub Pages deployment.
 - `src/app/models/team-data.ts` is the shared data contract. Editable content
   is grouped in the JSON under `site`, `schedule`, `roster`, `results`,
-  `recruitment`, and `contact`.
+  `recruitment`, and `contact`. `site.introduction` is a non-empty array of
+  bilingual paragraphs; the first item is the club name and the remaining
+  items are rendered in the About section.
 - Bilingual copy uses `{ vi, en }` objects and is rendered through
   `LocalizedTextPipe`. Pass the active `Language` into section components and
   use the pipe instead of selecting translations ad hoc. `App` also updates

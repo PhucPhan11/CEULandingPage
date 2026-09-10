@@ -36,7 +36,8 @@ export class TeamDataService {
       typeof site['name'] !== 'string' ||
       !isLocalizedText(site['eyebrow']) ||
       !isLocalizedText(site['title']) ||
-      !isLocalizedText(site['description'])
+      !isLocalizedText(site['description']) ||
+      !isLocalizedTextArray(site['introduction'])
     ) {
       throw new Error('Team site content is incomplete.');
     }
@@ -51,4 +52,8 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function isLocalizedText(value: unknown): value is LocalizedText {
   return isRecord(value) && typeof value['vi'] === 'string' && typeof value['en'] === 'string';
+}
+
+function isLocalizedTextArray(value: unknown): value is LocalizedText[] {
+  return Array.isArray(value) && value.length > 0 && value.every(isLocalizedText);
 }

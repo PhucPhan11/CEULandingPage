@@ -33,6 +33,25 @@ system.
 - Social entries must include an icon value of `instagram`, `facebook`, or
   `youtube` so the footer can render the matching platform mark.
 
+## Editing the team introduction
+
+The `site.introduction` array powers the About section. Keep the first item as
+the public club name and use the remaining items for the bilingual introduction
+paragraphs. Every item must include both `vi` and `en` values.
+
+```json
+"introduction": [
+  {
+    "vi": "CANTHO ENTIXIE ULTIMATE CLUB (CEU)",
+    "en": "CANTHO ENTIXIE ULTIMATE CLUB (CEU)"
+  },
+  {
+    "vi": "Đoạn giới thiệu bằng tiếng Việt.",
+    "en": "The English introduction paragraph."
+  }
+]
+```
+
 ## Adding a schedule item
 
 Copy an existing item in the `schedule` array and update:

@@ -668,13 +668,17 @@ app-root {
   font-weight: 700;
 }
 
-.about-statement p {
-  margin: 0 0 34px;
+.about-statement-copy {
+  display: grid;
+  gap: 19px;
+  margin-bottom: 34px;
+}
+
+.about-statement-copy p {
+  margin: 0;
   color: var(--ink-soft);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.5rem, 2.6vw, 2.35rem);
-  letter-spacing: -0.05em;
-  line-height: 1.18;
+  font-size: 15px;
+  line-height: 1.75;
 }
 
 .stats-grid {
@@ -1775,10 +1779,6 @@ app-contact-icon {
   .about-grid {
     gap: 45px;
     padding: 29px 0 62px;
-  }
-
-  .about-statement p {
-    font-size: 1.7rem;
   }
 
   .stats-grid {

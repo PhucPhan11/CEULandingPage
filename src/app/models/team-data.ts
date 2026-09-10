@@ -26,6 +26,7 @@ export interface SiteContent {
   eyebrow: LocalizedText;
   title: LocalizedText;
   description: LocalizedText;
+  introduction: LocalizedText[];
   sampleNotice: LocalizedText;
   stats: TeamStat[];
   values: TeamValue[];

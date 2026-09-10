@@ -37,12 +37,14 @@ describe('App', () => {
 
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Ném đĩa');
+    expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('Cộng đồng Cơ Đốc');
 
     const englishButton = compiled.querySelector('button:last-of-type') as HTMLButtonElement;
     englishButton.click();
     fixture.detectChanges();
 
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Throw together');
+    expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('A Christian community');
   });
 });
 
@@ -54,6 +56,10 @@ const sampleTeamData: TeamData = {
     eyebrow: { vi: 'Ultimate tại Cần Thơ', en: 'Ultimate in Can Tho' },
     title: { vi: 'Ném đĩa', en: 'Throw together' },
     description: { vi: 'Mô tả', en: 'Description' },
+    introduction: [
+      { vi: 'Giới thiệu CEU', en: 'CEU introduction' },
+      { vi: 'Cộng đồng Cơ Đốc', en: 'A Christian community' },
+    ],
     sampleNotice: { vi: 'Mẫu', en: 'Sample' },
     stats: [],
     values: [],
