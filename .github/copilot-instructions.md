@@ -37,8 +37,9 @@ npm run watch
   `TeamDataService` subscription. Keep section-specific markup and behavior
   out of this class.
 - `src/app/app.html` composes the page in this order: header, hero, content
-  status, about, jersey gallery, schedule, roster, results, recruitment, and
-  footer. Sections under `src/app/components/` are standalone components with
+  status, about, jersey gallery, schedule, roster, results, recent events,
+  recruitment, and footer. Sections under `src/app/components/` are standalone
+  components with
   typed inputs; the header emits language changes back to `App`.
 - `TeamDataService` loads the relative URL `data/team-data.json` and performs
   the runtime shape checks. Angular copies `public/` into the build output, so
@@ -46,7 +47,7 @@ npm run watch
   breaks the `/CEULandingPage/` GitHub Pages deployment.
 - `src/app/models/team-data.ts` is the shared data contract. Editable content
   is grouped in the JSON under `site`, `schedule`, `roster`, `results`,
-  `recruitment`, and `contact`. `site.introduction` is a non-empty array of
+  `events`, `recruitment`, and `contact`. `site.introduction` is a non-empty array of
   bilingual paragraphs; the first item is the club name and the remaining
   items are rendered in the About section. `site.values` contains the three
   bilingual CEU mission cards shown beneath that introduction.
@@ -57,6 +58,8 @@ npm run watch
 - Fixed visual assets live in `public/ceu-img/` and their paths are centralized
   in `src/app/shared/brand-assets.ts`. Use that object for the avatar,
   wordmark/background, and jersey images rather than repeating asset paths.
+- Recent event photos and opponent logos live in `public/ceu-img/events/` and
+  are referenced by the `events` data collection with `ceu-img/...` paths.
 - Global layout, responsive behavior, design tokens, and section styles are
   imported from `src/styles.css`, which imports `src/app/app.css`. The large
   stylesheet is intentionally global because Angular's component-style budget

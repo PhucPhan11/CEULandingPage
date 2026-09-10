@@ -55,6 +55,7 @@ state, and active language. Page sections are standalone components under
 - `schedule`
 - `roster`
 - `results`
+- `recent-events`
 - `recruitment`
 - `site-footer`
 
@@ -63,6 +64,8 @@ state, and active language. Page sections are standalone components under
 editable content contract remains in `src/app/models/team-data.ts` and is loaded
 by `src/app/services/team-data.service.ts`. Fixed brand imagery, including the
 three jersey images, is centralized in `src/app/shared/brand-assets.ts`.
+Event photos and opponent logos are maintained in `public/ceu-img/events/` and
+referenced by the `events` data collection.
 
 ## Deployment
 

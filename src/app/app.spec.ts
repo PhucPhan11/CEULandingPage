@@ -39,6 +39,7 @@ describe('App', () => {
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Ném đĩa');
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('Cộng đồng Cơ Đốc');
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Gây dựng');
+    expect(compiled.querySelector('.event-card h3')?.textContent).toContain('Giao hữu CEU');
 
     const englishButton = compiled.querySelector('button:last-of-type') as HTMLButtonElement;
     englishButton.click();
@@ -47,6 +48,7 @@ describe('App', () => {
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Throw together');
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('A Christian community');
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Build. Train. Share.');
+    expect(compiled.querySelector('.event-card h3')?.textContent).toContain('CEU friendly match');
   });
 });
 
@@ -75,6 +77,22 @@ const sampleTeamData: TeamData = {
   schedule: [],
   roster: [],
   results: [],
+  events: [
+    {
+      id: 'event-1',
+      date: '2024-02-24',
+      dateLabel: { vi: '24/02/2024', en: 'February 24, 2024' },
+      title: { vi: 'Giao hữu CEU', en: 'CEU friendly match' },
+      opponent: 'Thu Duc Entixie Ultimate',
+      opponentLogo: 'ceu-img/events/thuduc-logo.png',
+      images: [
+        {
+          src: 'ceu-img/events/thuduc-match-01.png',
+          alt: { vi: 'Ảnh giao hữu', en: 'Friendly match photo' },
+        },
+      ],
+    },
+  ],
   recruitment: {
     eyebrow: { vi: 'Tham gia', en: 'Join' },
     title: { vi: 'Tiêu đề', en: 'Title' },

@@ -69,6 +69,21 @@ export interface MatchResult {
   highlight: LocalizedText;
 }
 
+export interface RecentEventImage {
+  src: string;
+  alt: LocalizedText;
+}
+
+export interface RecentEvent {
+  id: string;
+  date: string;
+  dateLabel: LocalizedText;
+  title: LocalizedText;
+  opponent: string;
+  opponentLogo: string;
+  images: RecentEventImage[];
+}
+
 export interface RecruitmentContent {
   eyebrow: LocalizedText;
   title: LocalizedText;
@@ -98,6 +113,7 @@ export interface TeamData {
   schedule: ScheduleItem[];
   roster: RosterMember[];
   results: MatchResult[];
+  events: RecentEvent[];
   recruitment: RecruitmentContent;
   contact: ContactContent;
 }

@@ -1,0 +1,69 @@
+<section class="section section-dark events-section" id="events" aria-labelledby="events-title">
+  <div class="container">
+    <div class="section-intro split-intro split-intro-light">
+      <div>
+        <p class="eyebrow eyebrow-light">{{ { vi: '06 / Những kỷ niệm đã qua', en: '06 / Moments on record' } | localized: language }}</p>
+        <h2 id="events-title">{{ { vi: 'Các sự kiện gần đây', en: 'Recent events' } | localized: language }}</h2>
+      </div>
+      <p class="section-lede">
+        {{ {
+          vi: 'Những buổi giao hữu và khoảnh khắc cùng đồng đội, được giữ lại để nhớ về những đường bay đã qua.',
+          en: 'Friendly matches and moments with teammates, kept close as memories of the flights we shared.'
+        } | localized: language }}
+      </p>
+    </div>
+
+    <div class="event-list">
+      @for (event of events; track event.id) {
+        <article class="event-card">
+          <div class="event-card-header">
+            <div>
+              <p class="event-date">
+                <time [attr.datetime]="event.date">{{ event.dateLabel | localized: language }}</time>
+              </p>
+              <h3>{{ event.title | localized: language }}</h3>
+            </div>
+            <div
+              class="event-matchup"
+              [attr.aria-label]="language === 'vi' ? 'Các đội tham gia' : 'Teams'"
+            >
+              <div class="event-team">
+                <div class="event-team-logo">
+                  <img
+                    [src]="brandAssets.avatar"
+                    [alt]="language === 'vi' ? 'Logo CanTho Entixie Ultimate' : 'CanTho Entixie Ultimate logo'"
+                  />
+                </div>
+                <span>CEU</span>
+              </div>
+              <span class="event-versus" aria-hidden="true">×</span>
+              <div class="event-team">
+                <div class="event-team-logo event-opponent-logo">
+                  <img [src]="event.opponentLogo" [alt]="event.opponent + ' logo'" />
+                </div>
+                <span>{{ event.opponent }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-gallery">
+            @for (image of event.images; track image.src) {
+              <figure class="event-image">
+                <img
+                  [src]="image.src"
+                  [alt]="image.alt | localized: language"
+                  loading="lazy"
+                />
+              </figure>
+            }
+          </div>
+        </article>
+      } @empty {
+        <div class="empty-state">
+          <span aria-hidden="true">◌</span>
+          <p>{{ { vi: 'Chưa có sự kiện nào.', en: 'No recent events yet.' } | localized: language }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

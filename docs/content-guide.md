@@ -22,6 +22,8 @@ system.
 - `kind` must be `practice`, `pickup`, or `match`.
 - Results use numeric `teamScore` and `opponentScore` values and an `outcome` of
   `win`, `loss`, or `draw`.
+- Recent events use `date` in `YYYY-MM-DD`, a bilingual `title`, an opponent
+  name/logo path, and image entries with bilingual alt text.
 - Use stable, unique `id` values for schedule, roster, and result entries.
 - Keep location addresses and map links public and safe to share.
 - Use an empty `photo` value or omit the field when a player has no approved
@@ -56,6 +58,16 @@ The `site.values` array powers the three CEU mission cards beneath the team
 introduction. Keep the order as camaraderie, physical training, and Christian
 sports spirit unless the team intentionally changes the mission structure.
 Each card needs a bilingual `title` and `description`, plus its display `icon`.
+
+## Adding a recent event
+
+Add records to the top-level `events` array. Store event photos and opponent
+logos under `public/ceu-img/events/`, then reference them with paths beginning
+with `ceu-img/`. Keep event image alt text bilingual and avoid publishing
+photos without the required consent.
+
+The event card is intended for match memories and photo galleries; keep
+scorelines in the separate `results` array when a result is available.
 
 ## Adding a schedule item
 

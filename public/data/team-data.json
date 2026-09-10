@@ -309,6 +309,38 @@
       }
     }
   ],
+  "events": [
+    {
+      "id": "thuduc-friendly-2024",
+      "date": "2024-02-24",
+      "dateLabel": {
+        "vi": "24/02/2024",
+        "en": "February 24, 2024"
+      },
+      "title": {
+        "vi": "GIAO HỮU VỚI CLB THỦ ĐỨC ENTIXIE ULTIMATE",
+        "en": "FRIENDLY MATCH WITH THU DUC ENTIXIE ULTIMATE"
+      },
+      "opponent": "Thủ Đức Entixie Ultimate",
+      "opponentLogo": "ceu-img/events/thuduc-logo.png",
+      "images": [
+        {
+          "src": "ceu-img/events/thuduc-match-01.png",
+          "alt": {
+            "vi": "Đội hình CEU và Thủ Đức Entixie Ultimate sau trận giao hữu",
+            "en": "CEU and Thu Duc Entixie Ultimate teams after the friendly match"
+          }
+        },
+        {
+          "src": "ceu-img/events/thuduc-match-02.png",
+          "alt": {
+            "vi": "Khoảnh khắc giao hữu giữa CEU và Thủ Đức Entixie Ultimate",
+            "en": "A friendly match moment between CEU and Thu Duc Entixie Ultimate"
+          }
+        }
+      ]
+    }
+  ],
   "recruitment": {
     "eyebrow": {
       "vi": "Bạn có muốn bay cùng chúng mình?",

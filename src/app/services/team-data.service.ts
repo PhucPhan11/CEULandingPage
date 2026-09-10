@@ -20,7 +20,7 @@ export class TeamDataService {
       throw new Error('Team data must be a JSON object.');
     }
 
-    const requiredCollections = ['schedule', 'roster', 'results'] as const;
+    const requiredCollections = ['schedule', 'roster', 'results', 'events'] as const;
     for (const collection of requiredCollections) {
       if (!Array.isArray(value[collection])) {
         throw new Error(`Team data collection "${collection}" must be an array.`);
