@@ -86,7 +86,8 @@ team no longer has permission to display it.
 The shared brand assets live in `public/ceu-img/` and are referenced through
 `src/app/shared/brand-assets.ts`:
 
-- `avatar.png` is the square mark used in the site header and footer.
+- `avatar.png` is the square mark used in the site header, footer, and browser
+  page icon.
 - `background.png` is the horizontal Can Tho Entixie Ultimate wordmark used in
   the hero brand panel.
 
