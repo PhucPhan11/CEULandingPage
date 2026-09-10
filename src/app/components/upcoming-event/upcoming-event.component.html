@@ -27,7 +27,16 @@
         }
         @if (content.buttonLabel && content.buttonUrl) {
           <div class="upcoming-event-cta">
-            <a class="button" [href]="content.buttonUrl" target="_blank" rel="noopener">
+            <a
+              class="button"
+              [href]="content.buttonUrl"
+              target="_blank"
+              rel="noopener"
+              [attr.aria-label]="
+                (content.buttonLabel | localized: language) +
+                (language === 'vi' ? ' (mở trong thẻ mới)' : ' (opens in a new tab)')
+              "
+            >
               {{ content.buttonLabel | localized: language }}
               <span aria-hidden="true">↗</span>
             </a>
@@ -47,14 +56,6 @@
         <div>
           <dt>{{ { vi: 'Địa điểm', en: 'Location' } | localized: language }}</dt>
           <dd>{{ content.location | localized: language }}</dd>
-        </div>
-        <div>
-          <dt>{{ { vi: 'Hình thức', en: 'Format' } | localized: language }}</dt>
-          <dd>{{ content.format | localized: language }}</dd>
-        </div>
-        <div>
-          <dt>{{ { vi: 'Đơn vị tổ chức', en: 'Host' } | localized: language }}</dt>
-          <dd>{{ content.host }}</dd>
         </div>
       </dl>
     </div>
