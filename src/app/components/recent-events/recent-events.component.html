@@ -14,7 +14,7 @@
     </div>
 
     <div class="event-list">
-      @for (event of events; track event.id) {
+      @for (event of sortedEvents; track event.id) {
         <article class="event-card">
           @if (event.background) {
             <div class="event-background">

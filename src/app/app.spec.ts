@@ -39,27 +39,28 @@ describe('App', () => {
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Ném đĩa');
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('Cộng đồng Cơ Đốc');
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Gây dựng');
-    expect(compiled.querySelector('.event-card h3')?.textContent).toContain('Giao hữu CEU');
     const eventCards = compiled.querySelectorAll('.event-card');
     expect(eventCards).toHaveLength(4);
+    expect(eventCards[0].textContent).toContain('THAM GIA SEACUP5');
+    expect(eventCards[1].textContent).toContain('LOI CHOI RUN');
+    expect(eventCards[2].textContent).toContain('Giải Southwest Hat');
+    expect(eventCards[3].textContent).toContain('Giao hữu CEU');
     expect(compiled.querySelector('.event-background')).toBeTruthy();
-    expect(compiled.textContent).toContain('Giải Southwest Hat');
-    expect(compiled.querySelector('.event-background img')?.getAttribute('src'))
+    const southwestCard = eventCards[2] as HTMLElement;
+    expect(southwestCard.querySelector('.event-background img')?.getAttribute('src'))
       .toBe('ceu-img/events/southwest-hat-2024-background.png');
-    expect(compiled.querySelector('.event-feature-logo img')?.getAttribute('src'))
+    expect(southwestCard.querySelector('.event-feature-logo img')?.getAttribute('src'))
       .toBe('ceu-img/events/southwest-hat-2024-logo.png');
     expect(compiled.querySelector('img[alt="Ảnh giải đấu"]')?.getAttribute('src'))
       .toBe('ceu-img/events/southwest-hat-2024-match.png');
-    const loiChoiCard = eventCards[2] as HTMLElement;
-    expect(loiChoiCard.textContent).toContain('LOI CHOI RUN');
+    const loiChoiCard = eventCards[1] as HTMLElement;
     expect(loiChoiCard.querySelectorAll('time')).toHaveLength(2);
     expect(loiChoiCard.querySelector('time')?.getAttribute('datetime')).toBe('2026-07-15');
     expect(loiChoiCard.querySelectorAll('time')[1].getAttribute('datetime')).toBe('2026-08-09');
     expect(loiChoiCard.querySelectorAll('.event-image-contain')).toHaveLength(4);
     expect(loiChoiCard.querySelectorAll('img')[3].getAttribute('src'))
       .toBe('ceu-img/events/loi-choi-run-04.png');
-    const seacupCard = eventCards[3] as HTMLElement;
-    expect(seacupCard.textContent).toContain('THAM GIA SEACUP5');
+    const seacupCard = eventCards[0] as HTMLElement;
     expect(seacupCard.textContent).toContain('NTSEA Ultimate Club');
     expect(seacupCard.querySelector('.event-host img')?.getAttribute('src'))
       .toBe('ceu-img/events/seacup5-ntsea-logo.png');
@@ -76,7 +77,7 @@ describe('App', () => {
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Throw together');
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('A Christian community');
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Build. Train. Share.');
-    expect(compiled.querySelector('.event-card h3')?.textContent).toContain('CEU friendly match');
+    expect(eventCards[3].querySelector('h3')?.textContent).toContain('CEU friendly match');
     expect(compiled.querySelectorAll('.event-feature-logo')).toHaveLength(2);
     expect(compiled.textContent).toContain('Southwest Hat tournament');
     expect(compiled.textContent).toContain('LOI CHOI RUN');

@@ -14,4 +14,8 @@ export class RecentEventsComponent {
 
   @Input() events: RecentEvent[] = [];
   @Input() language: Language = 'vi';
+
+  get sortedEvents(): RecentEvent[] {
+    return [...this.events].sort((first, second) => second.date.localeCompare(first.date));
+  }
 }

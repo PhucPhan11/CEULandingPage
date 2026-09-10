@@ -65,7 +65,9 @@ Each card needs a bilingual `title` and `description`, plus its display `icon`.
 Add records to the top-level `events` array. Store event photos and opponent
 logos under `public/ceu-img/events/`, then reference them with paths beginning
 with `ceu-img/`. Keep event image alt text bilingual and avoid publishing
-photos without the required consent.
+photos without the required consent. The site automatically displays events
+from newest to oldest using the ISO `date` field, regardless of the order in
+the JSON array.
 
 The event card is intended for match memories and photo galleries; use
 `opponent`/`opponentLogo` for head-to-head events, `host`/`hostLogo` for the
