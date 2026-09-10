@@ -19,6 +19,7 @@
 - [x] Added the CEU history and community introduction in Vietnamese and English to the data-driven About section.
 - [x] Added the bilingual CEU mission block for camaraderie, physical training, and Christian sports.
 - [x] Updated recurring club activities to Friday Training and month-end Friday Pick-up at the supplied fields.
+- [x] Added the official Google Maps links and supplied addresses for both recurring activity venues.
 - [x] Added content maintenance documentation and GitHub Pages deployment workflow.
 - [x] Verified the production build, the `/CEULandingPage/` base-href build, and two focused Angular tests.
 - [x] Made the data request relative to the base href so GitHub Pages can serve `team-data.json` from the repository subpath.

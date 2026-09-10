@@ -118,9 +118,10 @@
         "en": "Huynh Chau Football Field"
       },
       "address": {
-        "vi": "Cần Thơ",
-        "en": "Can Tho"
+        "vi": "32a Đ. Hồ Bún Xáng, Tân An, Cần Thơ",
+        "en": "32A Ho Bun Xang Street, Tan An, Can Tho"
       },
+      "mapUrl": "https://maps.app.goo.gl/GjS159qRRSpHDapW7",
       "note": {
         "vi": "20:00 - 21:30, thứ 6 hàng tuần.",
         "en": "20:00 - 21:30, every Friday."
@@ -144,9 +145,10 @@
         "en": "Can Tho University Football Field"
       },
       "address": {
-        "vi": "Cần Thơ",
-        "en": "Can Tho"
+        "vi": "Khu II, Đ. 3 Tháng 2, Ninh Kiều, Cần Thơ",
+        "en": "Area II, 3/2 Street, Ninh Kieu, Can Tho"
       },
+      "mapUrl": "https://maps.app.goo.gl/EsbznVXtJ93c9rph7",
       "note": {
         "vi": "20:00 - 21:30, thứ 6 cuối tháng.",
         "en": "20:00 - 21:30, the last Friday of each month."
