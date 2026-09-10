@@ -125,7 +125,9 @@ app-root {
   font-size: 12px;
   font-weight: 600;
   text-decoration: none;
-  transition: color 180ms ease, opacity 180ms ease;
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
 }
 
 .main-nav a {
@@ -184,7 +186,11 @@ app-root {
   font-weight: 700;
   letter-spacing: 0.03em;
   text-decoration: none;
-  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
 }
 
 .button:hover {
@@ -235,7 +241,9 @@ app-root {
   font-size: 12px;
   font-weight: 700;
   text-decoration: none;
-  transition: gap 180ms ease, color 180ms ease;
+  transition:
+    gap 180ms ease,
+    color 180ms ease;
 }
 
 .text-link:hover,
@@ -259,8 +267,7 @@ app-root {
   overflow: hidden;
   background:
     radial-gradient(circle at 74% 37%, rgba(255, 213, 34, 0.15), transparent 23%),
-    radial-gradient(circle at 18% 96%, rgba(255, 178, 14, 0.09), transparent 30%),
-    var(--forest);
+    radial-gradient(circle at 18% 96%, rgba(255, 178, 14, 0.09), transparent 30%), var(--forest);
   color: var(--cream);
 }
 
@@ -417,7 +424,9 @@ app-root {
   background:
     radial-gradient(circle at 36% 27%, rgba(255, 255, 255, 0.45), transparent 9%),
     linear-gradient(135deg, var(--orange), var(--orange-deep));
-  box-shadow: 20px 26px 0 rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(255, 255, 255, 0.24);
+  box-shadow:
+    20px 26px 0 rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.24);
   color: var(--forest-deep);
   transform: rotate(-18deg);
   animation: float-disc 6s ease-in-out infinite;
@@ -734,7 +743,9 @@ app-root {
   min-height: 270px;
   padding: 27px;
   background: var(--cream);
-  transition: background 180ms ease, transform 180ms ease;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
 }
 
 .value-card:hover {
@@ -899,7 +910,9 @@ app-root {
   gap: 38px;
   padding: 31px 0;
   border-bottom: 1px solid var(--line-light);
-  transition: padding 180ms ease, background 180ms ease;
+  transition:
+    padding 180ms ease,
+    background 180ms ease;
 }
 
 .schedule-item:hover {
@@ -1049,7 +1062,9 @@ app-root {
   min-height: 315px;
   padding: 17px;
   background: var(--cream);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .member-card:hover {
@@ -1306,10 +1321,146 @@ app-root {
   line-height: 1.45;
 }
 
-.events-section {
+.upcoming-event-section {
   background:
-    linear-gradient(135deg, rgba(255, 213, 34, 0.08), transparent 38%),
-    var(--forest);
+    radial-gradient(circle at 88% 14%, rgba(255, 178, 14, 0.14), transparent 29%), var(--sand);
+}
+
+.upcoming-event-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.92fr);
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--line);
+}
+
+.upcoming-event-summary,
+.upcoming-event-meta {
+  padding: 32px;
+  background: rgba(245, 245, 241, 0.94);
+}
+
+.upcoming-event-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(154, 98, 0, 0.18);
+  border-radius: 999px;
+  color: var(--orange-deep);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.upcoming-event-badge::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  content: '';
+}
+
+.upcoming-event-format {
+  max-width: 430px;
+  margin: 22px 0 0;
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 3.3vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.upcoming-event-host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.upcoming-event-host span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.upcoming-event-host strong {
+  color: var(--orange-deep);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.upcoming-event-address {
+  max-width: 430px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.upcoming-event-cta {
+  margin-top: 28px;
+}
+
+.upcoming-event-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 24px;
+}
+
+.upcoming-event-meta div {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 94px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.upcoming-event-meta div:nth-child(-n + 2) {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.upcoming-event-meta dt {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.upcoming-event-meta dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.upcoming-event-meta time {
+  color: var(--orange-deep);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.events-section {
+  background: linear-gradient(135deg, rgba(255, 213, 34, 0.08), transparent 38%), var(--forest);
 }
 
 .event-card {
@@ -1839,8 +1990,13 @@ app-contact-icon {
   }
 
   .about-grid,
-  .results-layout {
+  .results-layout,
+  .upcoming-event-card {
     gap: 40px;
+  }
+
+  .upcoming-event-card {
+    grid-template-columns: 1fr;
   }
 
   .event-card-header {
@@ -1996,7 +2152,8 @@ app-contact-icon {
   .split-intro,
   .about-grid,
   .results-layout,
-  .join-inner {
+  .join-inner,
+  .upcoming-event-card {
     grid-template-columns: 1fr;
   }
 
@@ -2112,6 +2269,28 @@ app-contact-icon {
 
   .results-layout {
     gap: 28px;
+  }
+
+  .upcoming-event-card {
+    border-radius: 24px;
+  }
+
+  .upcoming-event-summary,
+  .upcoming-event-meta {
+    padding: 24px;
+  }
+
+  .upcoming-event-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .upcoming-event-meta div {
+    min-height: 0;
+  }
+
+  .upcoming-event-meta div:nth-child(2) {
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
   }
 
   .event-gallery {

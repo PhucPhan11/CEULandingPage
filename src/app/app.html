@@ -3,10 +3,7 @@
     {{ language() === 'vi' ? 'Đi đến nội dung chính' : 'Skip to main content' }}
   </a>
 
-  <app-site-header
-    [language]="language()"
-    (languageChange)="setLanguage($event)"
-  />
+  <app-site-header [language]="language()" (languageChange)="setLanguage($event)" />
 
   <main id="main-content">
     @if (dataState() === 'loading') {
@@ -31,7 +28,9 @@
           <span class="sample-dot" aria-hidden="true"></span>
           <span>{{ team.site.sampleNotice[language()] }}</span>
           <span class="sample-strip-rule" aria-hidden="true"></span>
-          <span>{{ language() === 'vi' ? 'Cập nhật qua dữ liệu đội' : 'Maintained in team data' }}</span>
+          <span>{{
+            language() === 'vi' ? 'Cập nhật qua dữ liệu đội' : 'Maintained in team data'
+          }}</span>
         </div>
       </div>
 
@@ -40,6 +39,7 @@
       <app-schedule [items]="team.schedule" [language]="language()" />
       <app-roster [members]="team.roster" [language]="language()" />
       <app-results [results]="team.results" [language]="language()" />
+      <app-upcoming-event [content]="team.upcomingEvent" [language]="language()" />
       <app-recent-events [events]="team.events" [language]="language()" />
       <app-recruitment [content]="team.recruitment" [language]="language()" />
       <app-site-footer [site]="team.site" [contact]="team.contact" [language]="language()" />

@@ -309,6 +309,33 @@
       }
     }
   ],
+  "upcomingEvent": {
+    "eyebrow": {
+      "vi": "06 / Sắp diễn ra",
+      "en": "06 / Coming up"
+    },
+    "title": {
+      "vi": "Cúp CEU tháng 11 tại Cần Thơ",
+      "en": "CEU Cup this November in Can Tho"
+    },
+    "description": {
+      "vi": "CEU đang chuẩn bị tổ chức một giải cup trong 1 ngày tại Cần Thơ vào tháng 11/2026. Ngày thi đấu, sân thi đấu và thông tin đăng ký sẽ được cập nhật khi đội chốt lịch chính thức.",
+      "en": "CEU is preparing to host a one-day cup tournament in Can Tho in November 2026. The final match date, venue, and registration details will be added once the team confirms the schedule."
+    },
+    "host": "CEU",
+    "format": {
+      "vi": "Giải cup 1 ngày do CEU tổ chức",
+      "en": "A one-day cup tournament hosted by CEU"
+    },
+    "dateLabel": {
+      "vi": "Tháng 11/2026 · sẽ cập nhật ngày cụ thể",
+      "en": "November 2026 · exact date to be confirmed"
+    },
+    "location": {
+      "vi": "Cần Thơ, Việt Nam",
+      "en": "Can Tho, Vietnam"
+    }
+  },
   "events": [
     {
       "id": "thuduc-friendly-2024",

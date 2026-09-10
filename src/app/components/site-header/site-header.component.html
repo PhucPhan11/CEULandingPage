@@ -3,7 +3,9 @@
     <a
       class="brand"
       href="#top"
-      [attr.aria-label]="({ vi: 'CEU Cần Thơ, Việt Nam', en: 'CEU Can Tho, Vietnam' } | localized: language)"
+      [attr.aria-label]="
+        { vi: 'CEU Cần Thơ, Việt Nam', en: 'CEU Can Tho, Vietnam' } | localized: language
+      "
     >
       <span class="brand-mark" aria-hidden="true">
         <img [src]="brandAssets.avatar" alt="" />
@@ -20,11 +22,15 @@
       <a href="#schedule">{{ { vi: 'Lịch', en: 'Schedule' } | localized: language }}</a>
       <a href="#roster">{{ { vi: 'Đội hình', en: 'Roster' } | localized: language }}</a>
       <a href="#results">{{ { vi: 'Kết quả', en: 'Results' } | localized: language }}</a>
-      <a href="#events">{{ { vi: 'Sự kiện', en: 'Events' } | localized: language }}</a>
+      <a href="#upcoming-event">{{ { vi: 'Sự kiện', en: 'Events' } | localized: language }}</a>
     </nav>
 
     <div class="header-actions">
-      <div class="language-switcher" role="group" [attr.aria-label]="language === 'vi' ? 'Chọn ngôn ngữ' : 'Choose language'">
+      <div
+        class="language-switcher"
+        role="group"
+        [attr.aria-label]="language === 'vi' ? 'Chọn ngôn ngữ' : 'Choose language'"
+      >
         <button
           type="button"
           [class.is-active]="language === 'vi'"

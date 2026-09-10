@@ -60,6 +60,22 @@ introduction. Keep the order as camaraderie, physical training, and Christian
 sports spirit unless the team intentionally changes the mission structure.
 Each card needs a bilingual `title` and `description`, plus its display `icon`.
 
+## Editing the upcoming hosted event block
+
+The upcoming hosted tournament lives in the top-level `upcomingEvent` object.
+Use it for the next CEU-run cup or tournament that should appear before the
+past-events gallery.
+
+- Required bilingual fields: `eyebrow`, `title`, `description`, `format`,
+  `dateLabel`, and `location`
+- Required plain field: `host`
+- Optional fields: `date`, `address`, `buttonLabel`, and `buttonUrl`
+
+If the exact date is not fixed yet, omit `date` and write a provisional
+`dateLabel` such as “Tháng 11/2026 · sẽ cập nhật ngày cụ thể”. If you add a CTA,
+add both `buttonLabel` and `buttonUrl`; if no link exists yet, omit both and
+the button will stay hidden.
+
 ## Adding a recent event
 
 Add records to the top-level `events` array. Store event photos and opponent

@@ -10,9 +10,7 @@ export class TeamDataService {
   private readonly http = inject(HttpClient);
 
   load(): Observable<TeamData> {
-    return this.http.get<unknown>('data/team-data.json').pipe(
-      map((value) => this.validate(value)),
-    );
+    return this.http.get<unknown>('data/team-data.json').pipe(map((value) => this.validate(value)));
   }
 
   private validate(value: unknown): TeamData {
@@ -27,7 +25,12 @@ export class TeamDataService {
       }
     }
 
-    if (!isRecord(value['site']) || !isRecord(value['recruitment']) || !isRecord(value['contact'])) {
+    if (
+      !isRecord(value['site']) ||
+      !isRecord(value['upcomingEvent']) ||
+      !isRecord(value['recruitment']) ||
+      !isRecord(value['contact'])
+    ) {
       throw new Error('Team data is missing a required content group.');
     }
 
@@ -40,6 +43,40 @@ export class TeamDataService {
       !isLocalizedTextArray(site['introduction'])
     ) {
       throw new Error('Team site content is incomplete.');
+    }
+
+    const upcomingEvent = value['upcomingEvent'];
+    const buttonLabel = upcomingEvent['buttonLabel'];
+    const buttonUrl = upcomingEvent['buttonUrl'];
+
+    if (
+      !isLocalizedText(upcomingEvent['eyebrow']) ||
+      !isLocalizedText(upcomingEvent['title']) ||
+      !isLocalizedText(upcomingEvent['description']) ||
+      typeof upcomingEvent['host'] !== 'string' ||
+      !isLocalizedText(upcomingEvent['format']) ||
+      !isLocalizedText(upcomingEvent['dateLabel']) ||
+      !isLocalizedText(upcomingEvent['location'])
+    ) {
+      throw new Error('Upcoming event content is incomplete.');
+    }
+
+    if (
+      (upcomingEvent['date'] !== undefined && typeof upcomingEvent['date'] !== 'string') ||
+      (upcomingEvent['address'] !== undefined && !isLocalizedText(upcomingEvent['address']))
+    ) {
+      throw new Error('Upcoming event details are invalid.');
+    }
+
+    if ((buttonLabel === undefined) !== (buttonUrl === undefined)) {
+      throw new Error('Upcoming event CTA must include both label and URL.');
+    }
+
+    if (
+      (buttonLabel !== undefined && !isLocalizedText(buttonLabel)) ||
+      (buttonUrl !== undefined && typeof buttonUrl !== 'string')
+    ) {
+      throw new Error('Upcoming event CTA is invalid.');
     }
 
     return value as unknown as TeamData;

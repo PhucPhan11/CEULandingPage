@@ -91,6 +91,20 @@ export interface RecentEvent {
   images: RecentEventImage[];
 }
 
+export interface UpcomingEventContent {
+  eyebrow: LocalizedText;
+  title: LocalizedText;
+  description: LocalizedText;
+  host: string;
+  format: LocalizedText;
+  dateLabel: LocalizedText;
+  date?: string;
+  location: LocalizedText;
+  address?: LocalizedText;
+  buttonLabel?: LocalizedText;
+  buttonUrl?: string;
+}
+
 export interface RecruitmentContent {
   eyebrow: LocalizedText;
   title: LocalizedText;
@@ -120,6 +134,7 @@ export interface TeamData {
   schedule: ScheduleItem[];
   roster: RosterMember[];
   results: MatchResult[];
+  upcomingEvent: UpcomingEventContent;
   events: RecentEvent[];
   recruitment: RecruitmentContent;
   contact: ContactContent;

@@ -10,19 +10,28 @@
           <span>{{ site.location | localized: language }}</span>
         </span>
       </a>
-      <p>{{ { vi: 'Giữ đĩa bay. Giữ tinh thần.', en: 'Keep the disc flying. Keep the spirit.' } | localized: language }}</p>
+      <p>
+        {{
+          { vi: 'Giữ đĩa bay. Giữ tinh thần.', en: 'Keep the disc flying. Keep the spirit.' }
+            | localized: language
+        }}
+      </p>
     </div>
     <div class="footer-links">
       <div>
-        <span class="footer-label">{{ { vi: 'Điều hướng', en: 'Explore' } | localized: language }}</span>
+        <span class="footer-label">{{
+          { vi: 'Điều hướng', en: 'Explore' } | localized: language
+        }}</span>
         <a href="#about">{{ { vi: 'Về đội', en: 'About' } | localized: language }}</a>
         <a href="#jersey">{{ { vi: 'Áo đấu', en: 'Jersey' } | localized: language }}</a>
         <a href="#schedule">{{ { vi: 'Lịch tập', en: 'Schedule' } | localized: language }}</a>
         <a href="#roster">{{ { vi: 'Đội hình', en: 'Roster' } | localized: language }}</a>
-        <a href="#events">{{ { vi: 'Sự kiện', en: 'Events' } | localized: language }}</a>
+        <a href="#upcoming-event">{{ { vi: 'Sự kiện', en: 'Events' } | localized: language }}</a>
       </div>
       <div>
-        <span class="footer-label">{{ { vi: 'Kết nối', en: 'Connect' } | localized: language }}</span>
+        <span class="footer-label">{{
+          { vi: 'Kết nối', en: 'Connect' } | localized: language
+        }}</span>
         <a class="footer-contact-link" [href]="'mailto:' + contact.email">
           <app-contact-icon kind="email" />
           <span class="contact-label">{{ contact.email }}</span>
@@ -39,7 +48,10 @@
   </div>
   <div class="container footer-bottom">
     <span>© 2026 CanTho Entixie Ultimate</span>
-    <span>{{ { vi: 'Một đội địa phương, một tinh thần lớn.', en: 'A local team with a big spirit.' } | localized: language }}</span>
+    <span>{{
+      { vi: 'Một đội địa phương, một tinh thần lớn.', en: 'A local team with a big spirit.' }
+        | localized: language
+    }}</span>
     <span>Made with ✦ in Cần Thơ</span>
   </div>
 </footer>

@@ -11,8 +11,7 @@ describe('App', () => {
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [provideHttpClient(), provideHttpClientTesting()],
-    })
-      .compileComponents();
+    }).compileComponents();
 
     http = TestBed.inject(HttpTestingController);
   });
@@ -41,8 +40,18 @@ describe('App', () => {
       'Cần Thơ, Việt Nam',
     );
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Ném đĩa');
-    expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('Cộng đồng Cơ Đốc');
+    expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain(
+      'Cộng đồng Cơ Đốc',
+    );
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Gây dựng');
+    expect(compiled.querySelector('.site-header a[href="#upcoming-event"]')).toBeTruthy();
+    expect(compiled.querySelector('#upcoming-event-title')?.textContent).toContain(
+      'Cúp CEU tháng 11 tại Cần Thơ',
+    );
+    expect(
+      compiled.querySelector('.upcoming-event-meta time')?.getAttribute('datetime'),
+    ).toBeNull();
+    expect(compiled.querySelector('.upcoming-event-card .button')).toBeNull();
     const eventCards = compiled.querySelectorAll('.event-card');
     expect(eventCards).toHaveLength(4);
     expect(eventCards[0].textContent).toContain('THAM GIA SEACUP5');
@@ -52,36 +61,48 @@ describe('App', () => {
     const southwestCard = eventCards[2] as HTMLElement;
     expect(southwestCard.querySelector('.event-background')).toBeTruthy();
     expect(southwestCard.querySelectorAll('.event-gallery > .event-image')).toHaveLength(2);
-    expect(southwestCard.querySelector('.event-background img')?.getAttribute('src'))
-      .toBe('ceu-img/events/southwest-hat-2024-background.png');
-    expect(southwestCard.querySelector('.event-feature-logo img')?.getAttribute('src'))
-      .toBe('ceu-img/events/southwest-hat-2024-logo.png');
-    expect(compiled.querySelector('img[alt="Ảnh giải đấu"]')?.getAttribute('src'))
-      .toBe('ceu-img/events/southwest-hat-2024-match.png');
+    expect(southwestCard.querySelector('.event-background img')?.getAttribute('src')).toBe(
+      'ceu-img/events/southwest-hat-2024-background.png',
+    );
+    expect(southwestCard.querySelector('.event-feature-logo img')?.getAttribute('src')).toBe(
+      'ceu-img/events/southwest-hat-2024-logo.png',
+    );
+    expect(compiled.querySelector('img[alt="Ảnh giải đấu"]')?.getAttribute('src')).toBe(
+      'ceu-img/events/southwest-hat-2024-match.png',
+    );
     const loiChoiCard = eventCards[1] as HTMLElement;
     expect(loiChoiCard.querySelectorAll('time')).toHaveLength(2);
     expect(loiChoiCard.querySelector('time')?.getAttribute('datetime')).toBe('2026-07-15');
     expect(loiChoiCard.querySelectorAll('time')[1].getAttribute('datetime')).toBe('2026-08-09');
     expect(loiChoiCard.querySelectorAll('.event-image-contain')).toHaveLength(4);
-    expect(loiChoiCard.querySelectorAll('img')[3].getAttribute('src'))
-      .toBe('ceu-img/events/loi-choi-run-04.png');
+    expect(loiChoiCard.querySelectorAll('img')[3].getAttribute('src')).toBe(
+      'ceu-img/events/loi-choi-run-04.png',
+    );
     const seacupCard = eventCards[0] as HTMLElement;
     expect(seacupCard.textContent).toContain('NTSEA Ultimate Club');
-    expect(seacupCard.querySelector('.event-host img')?.getAttribute('src'))
-      .toBe('ceu-img/events/seacup5-ntsea-logo.png');
-    expect(seacupCard.querySelector('.event-feature-logo img')?.getAttribute('src'))
-      .toBe('ceu-img/events/seacup5-event-logo.png');
+    expect(seacupCard.querySelector('.event-host img')?.getAttribute('src')).toBe(
+      'ceu-img/events/seacup5-ntsea-logo.png',
+    );
+    expect(seacupCard.querySelector('.event-feature-logo img')?.getAttribute('src')).toBe(
+      'ceu-img/events/seacup5-event-logo.png',
+    );
     expect(seacupCard.querySelectorAll('.event-image-contain')).toHaveLength(0);
-    expect(seacupCard.querySelectorAll('img')[3].getAttribute('src'))
-      .toBe('ceu-img/events/seacup5-team-photo-02.jpg');
+    expect(seacupCard.querySelectorAll('img')[3].getAttribute('src')).toBe(
+      'ceu-img/events/seacup5-team-photo-02.jpg',
+    );
 
     const englishButton = compiled.querySelector('button:last-of-type') as HTMLButtonElement;
     englishButton.click();
     fixture.detectChanges();
 
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Throw together');
-    expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('A Christian community');
+    expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain(
+      'A Christian community',
+    );
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Build. Train. Share.');
+    expect(compiled.querySelector('#upcoming-event-title')?.textContent).toContain(
+      'CEU Cup this November in Can Tho',
+    );
     expect(eventCards[3].querySelector('h3')?.textContent).toContain('CEU friendly match');
     expect(compiled.querySelectorAll('.event-feature-logo')).toHaveLength(2);
     expect(compiled.textContent).toContain('Southwest Hat tournament');
@@ -115,6 +136,24 @@ const sampleTeamData: TeamData = {
   schedule: [],
   roster: [],
   results: [],
+  upcomingEvent: {
+    eyebrow: { vi: '06 / Sắp diễn ra', en: '06 / Coming up' },
+    title: { vi: 'Cúp CEU tháng 11 tại Cần Thơ', en: 'CEU Cup this November in Can Tho' },
+    description: {
+      vi: 'CEU đang chuẩn bị tổ chức một giải cup trong 1 ngày tại Cần Thơ vào tháng 11/2026.',
+      en: 'CEU is preparing to host a one-day cup tournament in Can Tho in November 2026.',
+    },
+    host: 'CEU',
+    format: {
+      vi: 'Giải cup 1 ngày do CEU tổ chức',
+      en: 'A one-day cup tournament hosted by CEU',
+    },
+    dateLabel: {
+      vi: 'Tháng 11/2026 · sẽ cập nhật ngày cụ thể',
+      en: 'November 2026 · exact date to be confirmed',
+    },
+    location: { vi: 'Cần Thơ, Việt Nam', en: 'Can Tho, Vietnam' },
+  },
   events: [
     {
       id: 'event-1',
