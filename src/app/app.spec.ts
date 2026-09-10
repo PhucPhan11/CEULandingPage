@@ -36,8 +36,9 @@ describe('App', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.site-header .brand-copy')?.textContent).toContain('CEU');
     expect(compiled.querySelector('.site-header .brand-copy')?.textContent).toContain(
-      'CAN THO ENTIXIE',
+      'Cần Thơ, Việt Nam',
     );
     expect(compiled.querySelector('#hero-title')?.textContent).toContain('Ném đĩa');
     expect(compiled.querySelector('.about-statement-copy')?.textContent).toContain('Cộng đồng Cơ Đốc');
@@ -70,7 +71,7 @@ describe('App', () => {
       .toBe('ceu-img/events/seacup5-ntsea-logo.png');
     expect(seacupCard.querySelector('.event-feature-logo img')?.getAttribute('src'))
       .toBe('ceu-img/events/seacup5-event-logo.png');
-    expect(seacupCard.querySelectorAll('.event-image-contain')).toHaveLength(2);
+    expect(seacupCard.querySelectorAll('.event-image-contain')).toHaveLength(0);
     expect(seacupCard.querySelectorAll('img')[3].getAttribute('src'))
       .toBe('ceu-img/events/seacup5-team-photo-02.jpg');
 
@@ -92,8 +93,8 @@ describe('App', () => {
 const sampleTeamData: TeamData = {
   site: {
     name: 'CanTho Entixie Ultimate',
-    shortName: 'ENTIXIE',
-    location: { vi: 'Cần Thơ', en: 'Can Tho' },
+    shortName: 'CEU',
+    location: { vi: 'Cần Thơ, Việt Nam', en: 'Can Tho, Vietnam' },
     eyebrow: { vi: 'Ultimate tại Cần Thơ', en: 'Ultimate in Can Tho' },
     title: { vi: 'Ném đĩa', en: 'Throw together' },
     description: { vi: 'Mô tả', en: 'Description' },
@@ -196,7 +197,6 @@ const sampleTeamData: TeamData = {
       images: [
         {
           src: 'ceu-img/events/seacup5-team-photo-01.png',
-          fit: 'contain',
           alt: {
             vi: 'Đội CEU tham gia SEACUP5 cùng các đội Ultimate',
             en: 'The CEU team at SEACUP5 with fellow Ultimate teams',
@@ -204,7 +204,6 @@ const sampleTeamData: TeamData = {
         },
         {
           src: 'ceu-img/events/seacup5-team-photo-02.jpg',
-          fit: 'contain',
           alt: {
             vi: 'Đội hình CEU tại SEACUP5',
             en: 'The CEU squad at SEACUP5',

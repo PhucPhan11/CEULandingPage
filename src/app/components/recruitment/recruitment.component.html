@@ -6,7 +6,7 @@
       <p class="eyebrow eyebrow-light">{{ content.eyebrow | localized: language }}</p>
       <h2 id="join-title">{{ content.title | localized: language }}</h2>
       <p class="join-description">{{ content.description | localized: language }}</p>
-      <a class="button button-light" [href]="content.buttonUrl">
+      <a class="button button-light" [href]="content.buttonUrl" target="_blank" rel="noopener">
         {{ content.buttonLabel | localized: language }}
         <span aria-hidden="true">↗</span>
       </a>

@@ -625,6 +625,10 @@ app-root {
   gap: 90px;
 }
 
+.split-intro > :only-child {
+  grid-column: 1 / -1;
+}
+
 .section-intro h2 {
   max-width: 650px;
   margin: 0;
@@ -633,6 +637,7 @@ app-root {
   font-weight: 600;
   letter-spacing: -0.08em;
   line-height: 0.98;
+  text-wrap: balance;
 }
 
 .section-lede {

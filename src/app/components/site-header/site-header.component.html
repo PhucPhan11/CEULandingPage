@@ -1,12 +1,16 @@
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href="#top" aria-label="Can Tho Entixie Ultimate">
+    <a
+      class="brand"
+      href="#top"
+      [attr.aria-label]="({ vi: 'CEU Cần Thơ, Việt Nam', en: 'CEU Can Tho, Vietnam' } | localized: language)"
+    >
       <span class="brand-mark" aria-hidden="true">
         <img [src]="brandAssets.avatar" alt="" />
       </span>
       <span class="brand-copy">
-        <strong>CAN THO ENTIXIE</strong>
-        <span>ULTIMATE</span>
+        <strong>CEU</strong>
+        <span>{{ { vi: 'Cần Thơ, Việt Nam', en: 'Can Tho, Vietnam' } | localized: language }}</span>
       </span>
     </a>
 

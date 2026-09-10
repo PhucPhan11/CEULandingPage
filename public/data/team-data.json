@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "CanTho Entixie Ultimate",
-    "shortName": "ENTIXIE",
+    "shortName": "CEU",
     "location": {
       "vi": "Cần Thơ, Việt Nam",
       "en": "Can Tho, Vietnam"
@@ -431,7 +431,6 @@
       "images": [
         {
           "src": "ceu-img/events/seacup5-team-photo-01.png",
-          "fit": "contain",
           "alt": {
             "vi": "Đội CEU tham gia SEACUP5 cùng các đội Ultimate",
             "en": "The CEU team at SEACUP5 with fellow Ultimate teams"
@@ -439,7 +438,6 @@
         },
         {
           "src": "ceu-img/events/seacup5-team-photo-02.jpg",
-          "fit": "contain",
           "alt": {
             "vi": "Đội hình CEU tại SEACUP5",
             "en": "The CEU squad at SEACUP5"
@@ -465,11 +463,11 @@
       "vi": "Nhắn tin cho đội",
       "en": "Message the team"
     },
-    "buttonUrl": "mailto:canthoentixieultimate.2021@gmail.com",
+    "buttonUrl": "https://www.facebook.com/CanThoEntixieUltimate",
     "details": [
       {
-        "vi": "Tập 2 buổi mỗi tuần",
-        "en": "Two practices each week"
+        "vi": "Tập 1 buổi mỗi tuần",
+        "en": "One practice each week"
       },
       {
         "vi": "Mở cho mọi trình độ",
