@@ -7,7 +7,6 @@ interface JerseyCard {
   id: string;
   image: string;
   title: LocalizedText;
-  detail: LocalizedText;
 }
 
 @Component({
@@ -24,19 +23,16 @@ export class JerseyGalleryComponent {
       id: 'black',
       image: TEAM_BRAND_ASSETS.jerseys.black,
       title: { vi: 'Phiên bản đen', en: 'Black edition' },
-      detail: { vi: 'Nền đen, đường nét vàng', en: 'Black base, golden linework' },
     },
     {
       id: 'black-and-yellow',
       image: TEAM_BRAND_ASSETS.jerseys.blackAndYellow,
       title: { vi: 'Bộ phối màu', en: 'Mixed set' },
-      detail: { vi: 'Hai màu, một tinh thần', en: 'Two colors, one spirit' },
     },
     {
       id: 'yellow',
       image: TEAM_BRAND_ASSETS.jerseys.yellow,
       title: { vi: 'Phiên bản vàng', en: 'Yellow edition' },
-      detail: { vi: 'Năng lượng vàng cam', en: 'Golden-orange energy' },
     },
   ];
 }
