@@ -1,0 +1,401 @@
+{
+  "site": {
+    "name": "CanTho Entixie Ultimate",
+    "shortName": "ENTIXIE",
+    "location": {
+      "vi": "Cần Thơ, Việt Nam",
+      "en": "Can Tho, Vietnam"
+    },
+    "eyebrow": {
+      "vi": "Ultimate Frisbee tại Cần Thơ",
+      "en": "Ultimate Frisbee in Can Tho"
+    },
+    "title": {
+      "vi": "Ném đĩa. Kết nối. Bứt phá.",
+      "en": "Throw together. Fly further."
+    },
+    "description": {
+      "vi": "Một đội bóng đĩa trẻ, cởi mở và luôn sẵn sàng đón thêm đồng đội trên sân cỏ miền Tây.",
+      "en": "A young, open team always ready to welcome new teammates to the fields of the Mekong Delta."
+    },
+    "sampleNotice": {
+      "vi": "Nội dung mẫu - sẽ được thay bằng thông tin chính thức của đội.",
+      "en": "Sample content - replace with the team's official information before launch."
+    },
+    "stats": [
+      {
+        "value": "06",
+        "label": {
+          "vi": "năm cùng bay",
+          "en": "years in flight"
+        }
+      },
+      {
+        "value": "24+",
+        "label": {
+          "vi": "đồng đội",
+          "en": "teammates"
+        }
+      },
+      {
+        "value": "01",
+        "label": {
+          "vi": "tinh thần",
+          "en": "shared spirit"
+        }
+      }
+    ],
+    "values": [
+      {
+        "icon": "✦",
+        "title": {
+          "vi": "Tinh thần trước tiên",
+          "en": "Spirit first"
+        },
+        "description": {
+          "vi": "Chơi hết mình, tôn trọng đối thủ và tự chịu trách nhiệm cho từng đường bay.",
+          "en": "Play hard, respect the opposition, and own every line you throw."
+        }
+      },
+      {
+        "icon": "↗",
+        "title": {
+          "vi": "Cùng nhau tiến bộ",
+          "en": "Grow together"
+        },
+        "description": {
+          "vi": "Từ người mới đến người đã chơi lâu năm, ai cũng có chỗ để học và đóng góp.",
+          "en": "From first-timers to seasoned players, everyone has room to learn and contribute."
+        }
+      },
+      {
+        "icon": "◌",
+        "title": {
+          "vi": "Mở rộng vòng tròn",
+          "en": "Make space"
+        },
+        "description": {
+          "vi": "Một cộng đồng thân thiện, năng động và luôn có thêm chỗ cho bạn.",
+          "en": "A friendly, active community with one more place always waiting for you."
+        }
+      }
+    ]
+  },
+  "schedule": [
+    {
+      "id": "practice-01",
+      "date": "2026-09-12",
+      "dateLabel": {
+        "vi": "Thứ Bảy, 12 tháng 9",
+        "en": "Saturday, September 12"
+      },
+      "time": "16:30 - 18:30",
+      "kind": "practice",
+      "title": {
+        "vi": "Buổi tập mở",
+        "en": "Open practice"
+      },
+      "location": {
+        "vi": "Sân vận động Cần Thơ",
+        "en": "Can Tho Stadium"
+      },
+      "address": {
+        "vi": "Đường Lê Duẩn, Ninh Kiều",
+        "en": "Le Duan Street, Ninh Kieu"
+      },
+      "mapUrl": "https://maps.google.com/?q=Can+Tho+Stadium",
+      "note": {
+        "vi": "Người mới luôn được chào đón - mang theo nước và giày thể thao.",
+        "en": "First-timers are welcome - bring water and athletic shoes."
+      }
+    },
+    {
+      "id": "match-01",
+      "date": "2026-09-19",
+      "dateLabel": {
+        "vi": "Thứ Bảy, 19 tháng 9",
+        "en": "Saturday, September 19"
+      },
+      "time": "07:00 - 11:00",
+      "kind": "match",
+      "title": {
+        "vi": "Giao hữu miền Tây",
+        "en": "Mekong friendly"
+      },
+      "opponent": "Mekong Flyers",
+      "location": {
+        "vi": "Sân bóng Đại học Cần Thơ",
+        "en": "Can Tho University field"
+      },
+      "address": {
+        "vi": "Khu II, đường 3 tháng 2",
+        "en": "Campus II, 3/2 Street"
+      },
+      "mapUrl": "https://maps.google.com/?q=Can+Tho+University",
+      "note": {
+        "vi": "Tập trung lúc 06:30 tại cổng sân.",
+        "en": "Meet at the field gate at 06:30."
+      }
+    },
+    {
+      "id": "practice-02",
+      "date": "2026-09-22",
+      "dateLabel": {
+        "vi": "Thứ Ba, 22 tháng 9",
+        "en": "Tuesday, September 22"
+      },
+      "time": "18:00 - 20:00",
+      "kind": "practice",
+      "title": {
+        "vi": "Tập kỹ thuật & chiến thuật",
+        "en": "Skills & strategy"
+      },
+      "location": {
+        "vi": "Công viên Sông Hậu",
+        "en": "Song Hau Park"
+      },
+      "address": {
+        "vi": "Đường Sông Hậu, Cái Khế",
+        "en": "Song Hau Road, Cai Khe"
+      },
+      "mapUrl": "https://maps.google.com/?q=Song+Hau+Park",
+      "note": {
+        "vi": "Buổi tập cường độ vừa, phù hợp với mọi trình độ.",
+        "en": "A moderate session for every experience level."
+      }
+    },
+    {
+      "id": "practice-03",
+      "date": "2026-09-26",
+      "dateLabel": {
+        "vi": "Thứ Bảy, 26 tháng 9",
+        "en": "Saturday, September 26"
+      },
+      "time": "16:30 - 18:30",
+      "kind": "practice",
+      "title": {
+        "vi": "Scrimmage cuối tuần",
+        "en": "Weekend scrimmage"
+      },
+      "location": {
+        "vi": "Sân vận động Cần Thơ",
+        "en": "Can Tho Stadium"
+      },
+      "address": {
+        "vi": "Đường Lê Duẩn, Ninh Kiều",
+        "en": "Le Duan Street, Ninh Kieu"
+      },
+      "mapUrl": "https://maps.google.com/?q=Can+Tho+Stadium",
+      "note": {
+        "vi": "Chia đội và thi đấu ngắn để áp dụng kỹ thuật.",
+        "en": "Short games to put new skills into play."
+      }
+    }
+  ],
+  "roster": [
+    {
+      "id": "mai",
+      "name": "Mai Anh",
+      "number": "07",
+      "role": {
+        "vi": "Handler",
+        "en": "Handler"
+      },
+      "bio": {
+        "vi": "Giữ nhịp tấn công và luôn nhìn thấy đường chuyền tiếp theo.",
+        "en": "Sets the attacking rhythm and always sees the next pass."
+      },
+      "initials": "MA",
+      "accent": "orange"
+    },
+    {
+      "id": "khoa",
+      "name": "Minh Khoa",
+      "number": "12",
+      "role": {
+        "vi": "Cutter",
+        "en": "Cutter"
+      },
+      "bio": {
+        "vi": "Tốc độ, khoảng trống và những pha cắt vào đúng thời điểm.",
+        "en": "Speed, space, and cuts that arrive exactly on time."
+      },
+      "initials": "MK",
+      "accent": "blue"
+    },
+    {
+      "id": "linh",
+      "name": "Thảo Linh",
+      "number": "18",
+      "role": {
+        "vi": "Captain",
+        "en": "Captain"
+      },
+      "bio": {
+        "vi": "Kết nối mọi người trên sân bằng năng lượng tích cực.",
+        "en": "Connects the team on the field with contagious energy."
+      },
+      "initials": "TL",
+      "accent": "yellow"
+    },
+    {
+      "id": "phuc",
+      "name": "Phúc Nguyễn",
+      "number": "23",
+      "role": {
+        "vi": "Defender",
+        "en": "Defender"
+      },
+      "bio": {
+        "vi": "Đọc trận đấu, gây áp lực và biến phòng thủ thành phản công.",
+        "en": "Reads the game, applies pressure, and turns defense into attack."
+      },
+      "initials": "PN",
+      "accent": "green"
+    },
+    {
+      "id": "vy",
+      "name": "Khánh Vy",
+      "number": "31",
+      "role": {
+        "vi": "Cutter",
+        "en": "Cutter"
+      },
+      "bio": {
+        "vi": "Luôn sẵn sàng chạy thêm một bước cho đồng đội.",
+        "en": "Always ready to take one more step for the team."
+      },
+      "initials": "KV",
+      "accent": "orange"
+    },
+    {
+      "id": "nam",
+      "name": "Hoàng Nam",
+      "number": "44",
+      "role": {
+        "vi": "Handler",
+        "en": "Handler"
+      },
+      "bio": {
+        "vi": "Bình tĩnh dưới áp lực và thích những đường ném dài.",
+        "en": "Calm under pressure and always looking for the long throw."
+      },
+      "initials": "HN",
+      "accent": "blue"
+    }
+  ],
+  "results": [
+    {
+      "id": "result-01",
+      "date": "2026-08-30",
+      "dateLabel": {
+        "vi": "30 tháng 8, 2026",
+        "en": "August 30, 2026"
+      },
+      "opponent": "Saigon Heat",
+      "competition": {
+        "vi": "Giải giao hữu mùa hè",
+        "en": "Summer friendly"
+      },
+      "teamScore": 13,
+      "opponentScore": 9,
+      "outcome": "win",
+      "highlight": {
+        "vi": "Giữ tinh thần ổn định trong hiệp cuối.",
+        "en": "Stayed composed through the final point."
+      }
+    },
+    {
+      "id": "result-02",
+      "date": "2026-08-16",
+      "dateLabel": {
+        "vi": "16 tháng 8, 2026",
+        "en": "August 16, 2026"
+      },
+      "opponent": "Hanoi Wind",
+      "competition": {
+        "vi": "Vietnam Ultimate Open",
+        "en": "Vietnam Ultimate Open"
+      },
+      "teamScore": 8,
+      "opponentScore": 11,
+      "outcome": "loss",
+      "highlight": {
+        "vi": "Một trận đấu nhanh để học hỏi và trở lại mạnh hơn.",
+        "en": "A fast game to learn from and come back stronger."
+      }
+    },
+    {
+      "id": "result-03",
+      "date": "2026-07-26",
+      "dateLabel": {
+        "vi": "26 tháng 7, 2026",
+        "en": "July 26, 2026"
+      },
+      "opponent": "Mekong Flyers",
+      "competition": {
+        "vi": "Giao hữu khu vực",
+        "en": "Regional friendly"
+      },
+      "teamScore": 10,
+      "opponentScore": 10,
+      "outcome": "draw",
+      "highlight": {
+        "vi": "Một ngày đẹp trời và một trận đấu cân bằng.",
+        "en": "A bright day and a beautifully even game."
+      }
+    }
+  ],
+  "recruitment": {
+    "eyebrow": {
+      "vi": "Bạn có muốn bay cùng chúng mình?",
+      "en": "Ready to take flight?"
+    },
+    "title": {
+      "vi": "Một chiếc đĩa. Một đội. Vô hạn câu chuyện.",
+      "en": "One disc. One team. Infinite stories."
+    },
+    "description": {
+      "vi": "Không cần kinh nghiệm. Chỉ cần một đôi giày, tinh thần cởi mở và mong muốn thử điều mới.",
+      "en": "No experience needed. Bring athletic shoes, an open mind, and a willingness to try something new."
+    },
+    "buttonLabel": {
+      "vi": "Nhắn tin cho đội",
+      "en": "Message the team"
+    },
+    "buttonUrl": "mailto:cantho.entixie@example.com",
+    "details": [
+      {
+        "vi": "Tập 2 buổi mỗi tuần",
+        "en": "Two practices each week"
+      },
+      {
+        "vi": "Mở cho mọi trình độ",
+        "en": "All experience levels welcome"
+      },
+      {
+        "vi": "Tinh thần đồng đội là chính",
+        "en": "Team spirit at the center"
+      }
+    ]
+  },
+  "contact": {
+    "email": "cantho.entixie@example.com",
+    "location": {
+      "vi": "Cần Thơ, Đồng bằng sông Cửu Long",
+      "en": "Can Tho, Mekong Delta"
+    },
+    "socials": [
+      {
+        "label": "Instagram",
+        "shortLabel": "IG",
+        "url": "https://www.instagram.com/"
+      },
+      {
+        "label": "Facebook",
+        "shortLabel": "FB",
+        "url": "https://www.facebook.com/"
+      }
+    ]
+  }
+}

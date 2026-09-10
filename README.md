@@ -1,59 +1,54 @@
-# CeuLandingPage
+# CanTho Entixie Ultimate
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+A bilingual, data-driven landing page for CanTho Entixie Ultimate, a local
+Ultimate Frisbee team in Can Tho, Vietnam.
 
-## Development server
+The site is intentionally static in v1. It presents the team publicly and lets
+volunteers maintain schedule, roster, results, and contact copy through one
+documented JSON file. It does not contain a private admin dashboard or a
+backend.
 
-To start a local development server, run:
+## Local development
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Install dependencies and start the Angular development server:
 
 ```bash
-ng generate component component-name
+npm install
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Open `http://localhost:4200/`. The app reloads when source or data files change.
+
+## Content updates
+
+Edit [`public/data/team-data.json`](public/data/team-data.json) for public
+content. The field rules and copy/paste examples are in
+[`docs/content-guide.md`](docs/content-guide.md).
+
+For a safe update:
+
+1. Edit only the relevant data record.
+2. Keep Vietnamese and English values in their matching `vi` and `en` fields.
+3. Check names, dates, scores, map links, and photo consent.
+4. Open a pull request when possible.
+5. Confirm the build passes before publishing.
+
+## Build and test
 
 ```bash
-ng generate --help
+npm run build
+npm test -- --watch=false
 ```
 
-## Building
+The production build is emitted to `dist/ceu-landing-page/browser`.
 
-To build the project run:
+## Deployment
 
-```bash
-ng build
-```
+The workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
+builds pull requests and deploys pushes to `main` through GitHub Pages. The
+current repository path is configured as `/CEULandingPage/`; update the
+`--base-href` value if the repository name or custom domain changes.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+In the repository settings, set **Pages > Build and deployment > Source** to
+**GitHub Actions**. The site should be published at the repository's GitHub
+Pages URL after the first successful deployment.
