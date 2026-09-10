@@ -5,9 +5,9 @@
 - [x] Replaced the generated Angular welcome screen with the Entixie single-page layout.
 - [x] Added bilingual language switching with Vietnamese as the default.
 - [x] Added the local JSON data contract and runtime validation service.
-- [x] Added data-driven hero, about, schedule, roster, results, recruitment, and footer sections.
+- [x] Added data-driven hero, about, jersey, schedule, roster, results, upcoming-event, recent-events, recruitment, and footer sections.
 - [x] Added responsive styling, focus states, reduced-motion behavior, and empty/error/loading states.
-- [x] Extracted the page into standalone header, hero, about, schedule, roster, results, recruitment, and footer components.
+- [x] Extracted the page into standalone header, hero, about, jersey-gallery, schedule, roster, results, upcoming-event, recent-events, recruitment, and footer components.
 - [x] Centralized bilingual text rendering and schedule/result labels in shared utilities.
 - [x] Reduced the root `App` component to orchestration, language state, and data loading.
 - [x] Integrated the supplied avatar and wordmark background through a shared brand-assets configuration.
@@ -24,21 +24,23 @@
 - [x] Added the Southwest Hat 2024 event with its logo, background, and supplied event photo.
 - [x] Added the online LOI CHOI RUN event for 15/07/2026–09/08/2026 with four supplied images.
 - [x] Added the SEACUP5 event hosted by NTSEA Ultimate Club with both logos and two supplied team photos.
+- [x] Added the text-first upcoming CEU-hosted November event block with provisional details and an optional CTA model.
 - [x] Sorted recent events newest first by their ISO event date.
 - [x] Matched the Southwest Hat gallery to the friendly-match layout with two images in one desktop row.
 - [x] Improved responsive hero headline wrapping and widened the tablet copy measure to avoid an orphaned final word.
-- [x] Updated the header brand block to display CAN THO ENTIXIE / ULTIMATE.
+- [x] Updated the visible brand block to display CEU / Cần Thơ, Việt Nam.
+- [x] Updated the recruitment CTA to open the team Facebook page in a new tab.
 - [x] Scanned the repository and expanded `.github/copilot-instructions.md` with verified architecture, data-flow, build-budget, testing, and maintenance guidance.
 - [x] Added the seven evidence-backed reference documents under `docs/codebase/`.
 - [x] Added content maintenance documentation and GitHub Pages deployment workflow.
 - [x] Verified the production build, the `/CEULandingPage/` base-href build, and two focused Angular tests.
 - [x] Made the data request relative to the base href so GitHub Pages can serve `team-data.json` from the repository subpath.
-- [ ] Replace sample content with approved team copy, player data, photos, schedule, results, and contact links.
+- [ ] Replace or approve the remaining sample/provisional copy, player data, photos, schedule, results, and November hosted-event details.
 - [ ] Confirm the final GitHub Pages URL/base path and custom-domain decision.
 
 ## Content handoff
 
-The current `public/data/team-data.json` intentionally contains sample content.
-Before launch, a team maintainer should follow `docs/content-guide.md`, replace
-the sample notice and placeholder contact/social URLs, and confirm public roster
-and photo consent.
+The current `public/data/team-data.json` intentionally contains sample and
+provisional content. Before launch, a team maintainer should follow
+`docs/content-guide.md`, remove or replace `site.sampleNotice`, finalize the
+upcoming hosted-event details, and confirm public roster and photo consent.

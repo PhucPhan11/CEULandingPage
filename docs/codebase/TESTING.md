@@ -14,7 +14,7 @@
 ```bash
 npm test
 npm test -- --watch=false
-npm test -- --watch=false --include src/app/app.spec.ts
+npx ng test --watch=false --include src/app/app.spec.ts
 ```
 
 - There is no configured coverage command or threshold.
@@ -31,14 +31,15 @@ npm test -- --watch=false --include src/app/app.spec.ts
 
 ### 3) Test Scope Matrix
 
-| Scope | Covered? | Typical target | Notes |
-|-------|----------|----------------|-------|
-| Unit | Partial | Root signals and rendered component behavior | Assertions are primarily integration-style DOM checks |
-| Integration | Yes | App + `TeamDataService` HTTP boundary | Request is intercepted and sample `TeamData` is flushed |
-| E2E | No | Browser navigation and responsive layout | `[TODO]` Add only if the project needs browser-level regression coverage |
+| Scope       | Covered? | Typical target                               | Notes                                                                    |
+| ----------- | -------- | -------------------------------------------- | ------------------------------------------------------------------------ |
+| Unit        | Partial  | Root signals and rendered component behavior | Assertions are primarily integration-style DOM checks                    |
+| Integration | Yes      | App + `TeamDataService` HTTP boundary        | Request is intercepted and sample `TeamData` is flushed                  |
+| E2E         | No       | Browser navigation and responsive layout     | `[TODO]` Add only if the project needs browser-level regression coverage |
 
-The current suite covers creation, loaded bilingual content, language switching,
-event ordering/media fields, and teardown verification.
+The current suite covers creation, loaded bilingual content, language
+switching, hosted upcoming-event rendering, recent-event ordering/media fields,
+and teardown verification.
 
 ### 4) Mocking and Isolation Strategy
 
@@ -47,7 +48,9 @@ event ordering/media fields, and teardown verification.
 - Isolation guarantees: each test configures a fresh `TestBed`; `afterEach`
   calls `http.verify()` to detect unexpected requests.
 - Common failure mode: the suite depends on the exact relative data URL and on
-  Angular fixture stabilization before DOM assertions.
+  Angular fixture stabilization before DOM assertions, and the sample
+  `TeamData` fixture must stay aligned with required groups such as
+  `upcomingEvent`.
 
 ### 5) Coverage and Quality Signals
 

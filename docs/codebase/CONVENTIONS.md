@@ -4,14 +4,14 @@
 
 ### 1) Naming Rules
 
-| Item | Rule | Example | Evidence |
-|------|------|---------|----------|
-| Files | kebab-case feature directories and Angular suffixes | `recent-events.component.ts` | `src/app/components/recent-events/*` |
-| Functions/methods | camelCase; visibility is often explicit with `protected` or `private` | `setLanguage`, `loadData` | `src/app/app.ts` |
-| Types/interfaces | PascalCase | `TeamData`, `RecentEventImage` | `src/app/models/team-data.ts` |
-| Constants | uppercase descriptive names for shared immutable maps | `TEAM_BRAND_ASSETS`, `RESULT_OUTCOME_LABELS` | `src/app/shared/*` |
-| Content IDs | stable lower-case hyphenated strings | `seacup5-2026`, `training-friday` | `public/data/team-data.json` |
-| Component selectors | `app-` plus kebab-case | `app-recent-events` | `src/app/components/recent-events/recent-events.component.ts` |
+| Item                | Rule                                                                  | Example                                      | Evidence                                                      |
+| ------------------- | --------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------- |
+| Files               | kebab-case feature directories and Angular suffixes                   | `upcoming-event.component.ts`                | `src/app/components/upcoming-event/*`                         |
+| Functions/methods   | camelCase; visibility is often explicit with `protected` or `private` | `setLanguage`, `loadData`                    | `src/app/app.ts`                                              |
+| Types/interfaces    | PascalCase                                                            | `TeamData`, `UpcomingEventContent`           | `src/app/models/team-data.ts`                                 |
+| Constants           | uppercase descriptive names for shared immutable maps                 | `TEAM_BRAND_ASSETS`, `RESULT_OUTCOME_LABELS` | `src/app/shared/*`                                            |
+| Content IDs         | stable lower-case hyphenated strings                                  | `seacup5-2026`, `training-friday`            | `public/data/team-data.json`                                  |
+| Component selectors | `app-` plus kebab-case                                                | `app-recent-events`                          | `src/app/components/recent-events/recent-events.component.ts` |
 
 ### 2) Formatting and Linting
 
@@ -24,7 +24,9 @@
 - TypeScript/compiler rules: ES2022 target, isolated modules, strict Angular
   injection/input checks, `noImplicitReturns`, `noFallthroughCasesInSwitch`,
   and `noPropertyAccessFromIndexSignature` (`tsconfig.json`).
-- Run commands: `npm run build`, `npm test -- --watch=false`; formatting is
+- Run commands: `npm run build`, `npx ng build --base-href /CEULandingPage/`,
+  `npm test -- --watch=false`, and
+  `npx ng test --watch=false --include src/app/app.spec.ts`; formatting is
   configured but `[TODO]` no repository check command is defined.
 
 ### 3) Import and Module Conventions
@@ -37,11 +39,14 @@
   an NgModule for a new section.
 - Reuse `LocalizedTextPipe`, `content-labels.ts`, and `brand-assets.ts` rather
   than selecting translations or repeating asset paths in each component.
+- Off-site links use complete `https://` or `mailto:` URLs and, when they open
+  a new tab, pair `target="_blank"` with `rel="noopener"`.
 
 ### 4) Error and Logging Conventions
 
 - `TeamDataService` throws descriptive `Error` instances when the root JSON,
-  required collections, or core site fields are invalid.
+  required collections, core site fields, or `upcomingEvent` CTA/content shape
+  are invalid.
 - `App` handles the observable error, logs it with `console.error`, sets a
   bilingual user-facing error message, and changes the state to `error`.
 - Bootstrap failures are logged by the `catch` in `src/main.ts`.

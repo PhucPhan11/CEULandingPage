@@ -4,9 +4,10 @@ A bilingual, data-driven landing page for CanTho Entixie Ultimate, a local
 Ultimate Frisbee team in Can Tho, Vietnam.
 
 The site is intentionally static in v1. It presents the team publicly and lets
-volunteers maintain schedule, roster, results, and contact copy through one
-documented JSON file. It does not contain a private admin dashboard or a
-backend.
+volunteers maintain section content, including the upcoming hosted event,
+schedule, roster, results, recent events, recruitment, and contact copy
+through one documented JSON file. It does not contain a private admin
+dashboard or a backend.
 
 ## Local development
 
@@ -37,10 +38,15 @@ For a safe update:
 
 ```bash
 npm run build
+npx ng build --base-href /CEULandingPage/
 npm test -- --watch=false
+npx ng test --watch=false --include src/app/app.spec.ts
 ```
 
-The production build is emitted to `dist/ceu-landing-page/browser`.
+The production build is emitted to `dist/ceu-landing-page/browser`. Use
+`npx ng build --base-href /CEULandingPage/` to reproduce the GitHub Pages base
+path locally; the workflow itself runs
+`npm run build -- --base-href "/CEULandingPage/"`.
 
 ## Architecture
 
@@ -55,6 +61,7 @@ state, and active language. Page sections are standalone components under
 - `schedule`
 - `roster`
 - `results`
+- `upcoming-event`
 - `recent-events`
 - `recruitment`
 - `site-footer`
@@ -62,10 +69,12 @@ state, and active language. Page sections are standalone components under
 `src/app/shared/localized-text.pipe.ts` handles bilingual text selection, while
 `src/app/shared/content-labels.ts` owns shared schedule/result labels. The
 editable content contract remains in `src/app/models/team-data.ts` and is loaded
-by `src/app/services/team-data.service.ts`. Fixed brand imagery, including the
-three jersey images, is centralized in `src/app/shared/brand-assets.ts`.
-Event photos and opponent logos are maintained in `public/ceu-img/events/` and
-referenced by the `events` data collection.
+by `src/app/services/team-data.service.ts`. That contract now includes a
+dedicated `upcomingEvent` group for the hosted-tournament block placed before
+the past-events gallery. Fixed brand imagery, including the three jersey
+images, is centralized in `src/app/shared/brand-assets.ts`. Event photos and
+opponent logos are maintained in `public/ceu-img/events/` and referenced by
+the `events` data collection.
 
 ## Codebase reference
 

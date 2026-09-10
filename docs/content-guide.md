@@ -1,4 +1,4 @@
-# Entixie content guide
+# CEU content guide
 
 The public site reads its content from `public/data/team-data.json`. Volunteers can
 update that file without changing Angular code. Every update is published after the
@@ -33,6 +33,8 @@ system.
   without the person's permission.
 - External links should use complete `https://` URLs. Email links use the
   `mailto:` scheme.
+- The recruitment CTA and any optional `upcomingEvent` CTA open in a new tab,
+  so keep those destinations public and final before publishing.
 - Social entries must include an icon value of `instagram`, `facebook`, or
   `youtube` so the footer can render the matching platform mark.
 
@@ -74,7 +76,7 @@ past-events gallery.
 If the exact date is not fixed yet, omit `date` and write a provisional
 `dateLabel` such as “Tháng 11/2026 · sẽ cập nhật ngày cụ thể”. If you add a CTA,
 add both `buttonLabel` and `buttonUrl`; if no link exists yet, omit both and
-the button will stay hidden.
+the button will stay hidden. When the CTA is present, it opens in a new tab.
 
 ## Adding a recent event
 
@@ -129,11 +131,11 @@ Copy an existing item in the `schedule` array and update:
 }
 ```
 
-Use `opponent` for a match and omit it for a practice. Put the newest upcoming
-event first so the hero and schedule section lead with the most useful update.
-For recurring activities, use the next occurrence as the machine-readable
-`date`, describe the recurrence in `dateLabel`, and repeat the time pattern in
-the optional `note`.
+Use `opponent` for a match and omit it for a practice. Put the next activity
+first so the schedule section leads with the most useful update. For recurring
+activities, use the next occurrence as the machine-readable `date`, describe
+the recurrence in `dateLabel`, and repeat the time pattern in the optional
+`note`.
 
 ## Adding a result
 
@@ -168,7 +170,8 @@ separately in `public/assets/` only after receiving consent.
 
 ## Before launch
 
-- Replace sample copy, placeholder email/social URLs, and sample player data.
+- Replace or approve any remaining sample or provisional copy, including
+  `site.sampleNotice`, roster data, and unfinished upcoming-event details.
 - Confirm every name, score, venue, and contact link with the team.
 - Confirm photo permission for every image added to `public/assets/` or
   `public/ceu-img/`.

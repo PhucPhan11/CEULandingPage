@@ -9,16 +9,19 @@ the production build to GitHub Pages.
 npm install
 npm start
 npm run build
-npm run build -- --base-href "/CEULandingPage/"
+npx ng build --base-href /CEULandingPage/
 npm test -- --watch=false
-npm test -- --watch=false --include src/app/app.spec.ts
+npx ng test --watch=false --include src/app/app.spec.ts
 npm run watch
 ```
 
 - `npm start` serves the app locally at `http://localhost:4200/`.
-- The `--base-href` build is the deployment-equivalent command for this
-  repository. Its Pages artifact is `dist/ceu-landing-page/browser`.
-- The single-test command can be adapted by replacing the `--include` path
+- `npx ng build --base-href /CEULandingPage/` is the clean local
+  deployment-equivalent build command for this repository. The workflow itself
+  runs `npm run build -- --base-href "/CEULandingPage/"`, and the Pages
+  artifact is `dist/ceu-landing-page/browser`.
+- `npx ng test --watch=false --include src/app/app.spec.ts` is the clean
+  focused-test command and can be adapted by replacing the `--include` path
   with another `*.spec.ts` file.
 - There is no npm lint script. Prettier is installed and configured in
   `.prettierrc`; TypeScript uses single quotes, two-space indentation, and
@@ -39,9 +42,9 @@ npm run watch
 - `public/data/team-data.json` is the editable content source. `public/` is
   copied verbatim by `angular.json`, so asset references must be relative to
   the deployed base path.
-- `src/styles.css` owns global resets/fonts and imports the 1,878-line
-  `src/app/app.css`, which owns the shared design system, responsive layout,
-  and section styles.
+- `src/styles.css` owns global resets/fonts and imports the large shared
+  `src/app/app.css`, which owns the design system, responsive layout, and
+  section styles.
 
 ## Architecture
 
@@ -56,24 +59,30 @@ npm run watch
   `TeamDataService` subscription. Keep section-specific markup and behavior
   out of this class.
 - `src/app/app.html` composes the page in this order: header, hero, content
-  status, about, jersey gallery, schedule, roster, results, recent events,
-  recruitment, and footer. Sections under `src/app/components/` are standalone
-  components with
-  typed inputs; the header emits language changes back to `App`.
+  status, about, jersey gallery, schedule, roster, results, upcoming hosted
+  event, recent events, recruitment, and footer. Sections under
+  `src/app/components/` are standalone components with typed inputs; the
+  header emits language changes back to `App`.
 - `TeamDataService` loads the relative URL `data/team-data.json` and performs
   the runtime shape checks. Angular copies `public/` into the build output, so
   do not change this data URL to `/data/team-data.json`; the root-absolute form
   breaks the `/CEULandingPage/` GitHub Pages deployment.
 - `src/app/models/team-data.ts` is the shared data contract. Editable content
   is grouped in the JSON under `site`, `schedule`, `roster`, `results`,
-  `events`, `recruitment`, and `contact`. `site.introduction` is a non-empty array of
-  bilingual paragraphs; the first item is the club name and the remaining
-  items are rendered in the About section. `site.values` contains the three
-  bilingual CEU mission cards shown beneath that introduction.
+  `upcomingEvent`, `events`, `recruitment`, and `contact`.
+  `site.introduction` is a non-empty array of bilingual paragraphs; the first
+  item is the club name and the remaining items are rendered in the About
+  section. `site.values` contains the three bilingual CEU mission cards shown
+  beneath that introduction. `upcomingEvent` powers the text-first hosted
+  tournament block placed before the past-events gallery; its CTA is optional
+  and must provide both `buttonLabel` and `buttonUrl` together.
 - Bilingual copy uses `{ vi, en }` objects and is rendered through
   `LocalizedTextPipe`. Pass the active `Language` into section components and
   use the pipe instead of selecting translations ad hoc. `App` also updates
   `document.documentElement.lang`.
+- The visible compact brand copy currently presents `CEU` with a localized
+  `Cần Thơ, Việt Nam / Can Tho, Vietnam` label in the header and footer, while
+  the longer club name remains in `site.name` and `site.introduction[0]`.
 - Fixed visual assets live in `public/ceu-img/` and their paths are centralized
   in `src/app/shared/brand-assets.ts`. Use that object for the avatar,
   wordmark/background, and jersey images rather than repeating asset paths.
@@ -118,11 +127,12 @@ npm run watch
 - Use Angular control flow (`@if`, `@for`, and `@switch`) used by the current
   templates. Track repeated records with a stable ID or another stable
   identity.
-- Keep schedule, roster, result, contact, and editorial updates in
-  `public/data/team-data.json`; volunteers should not need to edit Angular
-  code for normal content maintenance. Preserve stable IDs, ISO `YYYY-MM-DD`
-  dates, typed enum values (`practice`/`pickup`/`match`, `win`/`loss`/`draw`), complete
-  URLs, and both `vi` and `en` values for public copy.
+- Keep schedule, upcoming hosted-event, roster, result, recent-event,
+  recruitment, contact, and editorial updates in `public/data/team-data.json`;
+  volunteers should not need to edit Angular code for normal content
+  maintenance. Preserve stable IDs, ISO `YYYY-MM-DD` dates, typed enum values
+  (`practice`/`pickup`/`match`, `win`/`loss`/`draw`), complete URLs, and both
+  `vi` and `en` values for public copy.
 - Keep public data privacy-safe: do not add private phone numbers, home
   addresses, personal accounts, or player photos without consent. Use the
   documented empty-photo behavior when no public photo is approved.
@@ -130,6 +140,10 @@ npm run watch
   `src/app/shared/content-labels.ts`; put reusable SVG contact marks in the
   `contact-icon` component instead of adding an icon dependency for one-off
   footer links.
+- Off-site links should use complete `https://` or `mailto:` URLs and, when
+  they open in a new tab, pair `target="_blank"` with `rel="noopener"` like
+  the schedule maps, footer socials, recruitment CTA, and optional
+  upcoming-event CTA.
 - Preserve the existing black/yellow/gold visual system and its responsive
   behavior. Add shared tokens and layout rules to `src/app/app.css`; keep
   component styles small enough for the Angular style budget. Maintain visible
@@ -142,9 +156,10 @@ npm run watch
 - The supplied event media includes several multi-megabyte PNG/JPG files. Keep
   meaningful alt text and consent records, but consider responsive WebP/AVIF
   derivatives before adding more high-resolution assets.
-- `TeamDataService` validates the JSON root, required collections, and core site
-  fields, then casts the remaining structure to `TeamData`; changes to nested
-  records should preserve the model and be covered by `app.spec.ts`.
+- `TeamDataService` validates the JSON root, required collections, selected
+  site fields, and the `upcomingEvent` content/CTA shape, then casts the
+  remaining structure to `TeamData`; changes to nested records should preserve
+  the model and be covered by `app.spec.ts`.
 - `site.sampleNotice` still states that the content is sample data. Remove or
   replace it only after the team approves the public copy, roster, links, and
   photo permissions.
