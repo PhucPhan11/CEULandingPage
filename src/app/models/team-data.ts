@@ -77,9 +77,12 @@ export interface RecruitmentContent {
   details: LocalizedText[];
 }
 
+export type ContactIcon = 'email' | 'instagram' | 'facebook' | 'youtube';
+
 export interface SocialLink {
   label: string;
   shortLabel: string;
+  icon: Exclude<ContactIcon, 'email'>;
   url: string;
 }
 

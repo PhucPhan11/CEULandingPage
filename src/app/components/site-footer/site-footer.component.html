@@ -21,9 +21,16 @@
       </div>
       <div>
         <span class="footer-label">{{ { vi: 'Kết nối', en: 'Connect' } | localized: language }}</span>
-        <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+        <a class="footer-contact-link" [href]="'mailto:' + contact.email">
+          <app-contact-icon kind="email" />
+          <span class="contact-label">{{ contact.email }}</span>
+        </a>
         @for (social of contact.socials; track social.label) {
-          <a [href]="social.url" target="_blank" rel="noopener">{{ social.label }} <span aria-hidden="true">↗</span></a>
+          <a class="footer-contact-link" [href]="social.url" target="_blank" rel="noopener">
+            <app-contact-icon [kind]="social.icon" />
+            <span class="contact-label">{{ social.label }}</span>
+            <span class="external-mark" aria-hidden="true">↗</span>
+          </a>
         }
       </div>
     </div>

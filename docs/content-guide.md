@@ -30,6 +30,8 @@ system.
   without the person's permission.
 - External links should use complete `https://` URLs. Email links use the
   `mailto:` scheme.
+- Social entries must include an icon value of `instagram`, `facebook`, or
+  `youtube` so the footer can render the matching platform mark.
 
 ## Adding a schedule item
 

@@ -4,8 +4,8 @@
 :root {
   color-scheme: light;
   font-family: 'DM Sans', 'Segoe UI', sans-serif;
-  color: #17352e;
-  background: #f7f8f2;
+  color: #111314;
+  background: #f5f5f1;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -23,7 +23,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #f7f8f2;
+  background: #f5f5f1;
 }
 
 button,

@@ -389,12 +389,20 @@
       {
         "label": "Instagram",
         "shortLabel": "IG",
-        "url": "https://www.instagram.com/"
+        "icon": "instagram",
+        "url": "https://www.instagram.com/cantho_entixie_ultimate"
       },
       {
         "label": "Facebook",
         "shortLabel": "FB",
-        "url": "https://www.facebook.com/"
+        "icon": "facebook",
+        "url": "https://www.facebook.com/CanThoEntixieUltimate"
+      },
+      {
+        "label": "YouTube",
+        "shortLabel": "YT",
+        "icon": "youtube",
+        "url": "https://www.youtube.com/@CanThoEntixieUltimate"
       }
     ]
   }
