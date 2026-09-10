@@ -73,6 +73,8 @@ The event card is intended for match memories and photo galleries; use
 `opponent`/`opponentLogo` for head-to-head events, `host`/`hostLogo` for the
 organizing club, or `eventLogo`/`background` for tournaments and festivals.
 Keep scorelines in the separate `results` array when a result is available.
+When `background` is present, it is shown as the first image in the event's
+two-column gallery on desktop.
 For a multi-day event, use `endDate` and `endDateLabel` alongside the starting
 `date` and `dateLabel`. Set an image's optional `fit` to `contain` when the
 complete poster or graphic must remain visible; the default is `cover`.

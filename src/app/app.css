@@ -337,6 +337,7 @@ app-root {
   font-weight: 600;
   letter-spacing: -0.095em;
   line-height: 0.93;
+  text-wrap: balance;
 }
 
 .hero-description {
@@ -1309,16 +1310,14 @@ app-root {
 }
 
 .event-background {
-  overflow: hidden;
-  border-bottom: 1px solid var(--line-light);
   background: var(--ink);
 }
 
 .event-background img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
 }
 
 .event-card-header {
@@ -1792,6 +1791,7 @@ app-contact-icon {
   }
 
   .hero-copy {
+    max-width: 690px;
     padding: 20px 0 0;
   }
 

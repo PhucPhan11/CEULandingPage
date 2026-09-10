@@ -45,8 +45,9 @@ describe('App', () => {
     expect(eventCards[1].textContent).toContain('LOI CHOI RUN');
     expect(eventCards[2].textContent).toContain('Giải Southwest Hat');
     expect(eventCards[3].textContent).toContain('Giao hữu CEU');
-    expect(compiled.querySelector('.event-background')).toBeTruthy();
     const southwestCard = eventCards[2] as HTMLElement;
+    expect(southwestCard.querySelector('.event-background')).toBeTruthy();
+    expect(southwestCard.querySelectorAll('.event-gallery > .event-image')).toHaveLength(2);
     expect(southwestCard.querySelector('.event-background img')?.getAttribute('src'))
       .toBe('ceu-img/events/southwest-hat-2024-background.png');
     expect(southwestCard.querySelector('.event-feature-logo img')?.getAttribute('src'))

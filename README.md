@@ -67,6 +67,13 @@ three jersey images, is centralized in `src/app/shared/brand-assets.ts`.
 Event photos and opponent logos are maintained in `public/ceu-img/events/` and
 referenced by the `events` data collection.
 
+## Codebase reference
+
+The evidence-backed repository map, architecture notes, conventions,
+integration inventory, testing patterns, and maintenance concerns are in
+[`docs/codebase/`](docs/codebase/). Keep those documents aligned with source
+and configuration changes that affect future contributors or coding agents.
+
 ## Deployment
 
 The workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)

@@ -24,6 +24,25 @@ npm run watch
   `.prettierrc`; TypeScript uses single quotes, two-space indentation, and
   Angular templates use the Angular Prettier parser.
 
+## Repository map and data flow
+
+- `src/main.ts` bootstraps the standalone `App` component with
+  `src/app/app.config.ts`; `src/app/app.routes.ts` is intentionally empty
+  because v1 has one page and no route-driven flow.
+- `src/app/app.ts` is the only page-level coordinator. It injects
+  `TeamDataService`, owns `language`, `data`, and loading/error signals, and
+  passes typed slices of `TeamData` to section components.
+- `src/app/components/<section-name>/` contains standalone presentation
+  components. Keep section markup and behavior there instead of expanding
+  `App`; reusable non-visual logic belongs in `src/app/shared/` or
+  `src/app/services/`.
+- `public/data/team-data.json` is the editable content source. `public/` is
+  copied verbatim by `angular.json`, so asset references must be relative to
+  the deployed base path.
+- `src/styles.css` owns global resets/fonts and imports the 1,878-line
+  `src/app/app.css`, which owns the shared design system, responsive layout,
+  and section styles.
+
 ## Architecture
 
 - This is a static, client-rendered Angular 22 single-page application. There
@@ -62,7 +81,9 @@ npm run watch
   `public/ceu-img/events/` and are referenced by the `events` data collection
   with `ceu-img/...` paths. Host clubs use `host` and `hostLogo`; multi-day
   events use `endDate` and `endDateLabel`; poster-style images can use
-  `fit: "contain"`.
+  `fit: "contain"`. An event `background` is rendered as the first gallery
+  image. Recent events are sorted newest first by their ISO `date` in
+  `RecentEventsComponent`, so JSON array order is not the display order.
 - Global layout, responsive behavior, design tokens, and section styles are
   imported from `src/styles.css`, which imports `src/app/app.css`. The large
   stylesheet is intentionally global because Angular's component-style budget
@@ -70,6 +91,23 @@ npm run watch
 - The GitHub Pages workflow in `.github/workflows/deploy.yml` uses Node 22,
   `npm ci`, `npm run build -- --base-href "/CEULandingPage/"`, and uploads
   `dist/ceu-landing-page/browser`.
+
+## Build, compiler, and test constraints
+
+- `angular.json` uses `@angular/build:application`, copies the `public/`
+  directory, hashes production output, and enforces a 500 kB initial warning /
+  1 MB initial error budget plus a 4 kB warning / 8 kB error component-style
+  budget.
+- `tsconfig.json` targets ES2022 and enables strict Angular injection/input
+  checks plus `noImplicitReturns`, `noFallthroughCasesInSwitch`, and
+  `noPropertyAccessFromIndexSignature`. Keep changes type-safe rather than
+  bypassing these checks with broad casts.
+- Root integration tests use Angular `TestBed`, `provideHttpClient()`, and
+  `provideHttpClientTesting()`. Flush the exact relative
+  `data/team-data.json` request and call `http.verify()` in teardown.
+- There is no configured coverage threshold, E2E suite, security scanner, or
+  lint script. Do not describe those checks as existing unless the repository
+  adds them explicitly.
 
 ## Repository conventions
 
@@ -101,6 +139,18 @@ npm run watch
   `provideHttpClientTesting()`. Flush the expected relative
   `data/team-data.json` request, call `http.verify()` in teardown, and use
   the existing `App` integration test pattern for language/content changes.
+- The supplied event media includes several multi-megabyte PNG/JPG files. Keep
+  meaningful alt text and consent records, but consider responsive WebP/AVIF
+  derivatives before adding more high-resolution assets.
+- `TeamDataService` validates the JSON root, required collections, and core site
+  fields, then casts the remaining structure to `TeamData`; changes to nested
+  records should preserve the model and be covered by `app.spec.ts`.
+- `site.sampleNotice` still states that the content is sample data. Remove or
+  replace it only after the team approves the public copy, roster, links, and
+  photo permissions.
+- The evidence-backed codebase reference set is in `docs/codebase/`: start with
+  `ARCHITECTURE.md`, `CONVENTIONS.md`, and `CONCERNS.md` when a task crosses
+  module or workflow boundaries.
 - Update `README.md`, `docs/content-guide.md`, or
   `implementation_notes.md` when changing the volunteer data workflow,
   asset filenames, deployment behavior, or other repository-facing
