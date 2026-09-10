@@ -1,0 +1,63 @@
+<section
+  class="section section-light upcoming-event-section"
+  id="upcoming-event"
+  aria-labelledby="upcoming-event-title"
+>
+  <div class="container">
+    <div class="section-intro split-intro">
+      <div>
+        <p class="eyebrow">{{ content.eyebrow | localized: language }}</p>
+        <h2 id="upcoming-event-title">{{ content.title | localized: language }}</h2>
+      </div>
+      <p class="section-lede">{{ content.description | localized: language }}</p>
+    </div>
+
+    <div class="upcoming-event-card">
+      <div class="upcoming-event-summary">
+        <span class="upcoming-event-badge">
+          {{ { vi: 'Sự kiện sắp diễn ra', en: 'Upcoming event' } | localized: language }}
+        </span>
+        <p class="upcoming-event-format">{{ content.format | localized: language }}</p>
+        <div class="upcoming-event-host">
+          <span>{{ { vi: 'Đơn vị tổ chức', en: 'Hosted by' } | localized: language }}</span>
+          <strong>{{ content.host }}</strong>
+        </div>
+        @if (content.address) {
+          <p class="upcoming-event-address">{{ content.address | localized: language }}</p>
+        }
+        @if (content.buttonLabel && content.buttonUrl) {
+          <div class="upcoming-event-cta">
+            <a
+              class="button"
+              [href]="content.buttonUrl"
+              target="_blank"
+              rel="noopener"
+              [attr.aria-label]="
+                (content.buttonLabel | localized: language) +
+                (language === 'vi' ? ' (mở trong thẻ mới)' : ' (opens in a new tab)')
+              "
+            >
+              {{ content.buttonLabel | localized: language }}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        }
+      </div>
+
+      <dl class="upcoming-event-meta">
+        <div>
+          <dt>{{ { vi: 'Thời gian', en: 'Date' } | localized: language }}</dt>
+          <dd>
+            <time [attr.datetime]="content.date || null">
+              {{ content.dateLabel | localized: language }}
+            </time>
+          </dd>
+        </div>
+        <div>
+          <dt>{{ { vi: 'Địa điểm', en: 'Location' } | localized: language }}</dt>
+          <dd>{{ content.location | localized: language }}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
