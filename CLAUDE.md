@@ -1,58 +1,97 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+CEU (CanTho Entixie Ultimate) landing page: a static, bilingual (vi/en) Angular 22 SPA that renders
+`public/data/team-data.json` and deploys to GitHub Pages under `/CEULandingPage/`.
+
+**Source of truth:** `.github/copilot-instructions.md` holds the team's full architecture and
+convention rules (shared with Copilot). Read it before any non-trivial code change. This file only
+adds verified commands, gotchas, and pointers. Put team-wide rule changes in the Copilot file, not here.
 
 ## Commands
 
-Node.js 22 and npm. There is no lint script.
+Commands come from `package.json` and `.github/workflows/deploy.yml`. Status is from the last verification run.
 
-```bash
-npm install
-npm start                                          # serve at http://localhost:4200/
-npm run build                                      # production build
-npx ng build --base-href /CEULandingPage/          # deployment-equivalent build (GitHub Pages base path)
-npm test -- --watch=false                          # full test run
-npx ng test --watch=false --include src/app/app.spec.ts   # single-spec run; swap the path for another *.spec.ts
-npm run watch                                      # dev-config build, watch mode
-```
+| Task | Command | Status |
+|---|---|---|
+| Install (CI) | `npm ci` | not run here (installs deps; ask first) |
+| Install (local) | `npm install` | not run here (installs deps; ask first) |
+| Dev server | `npm start` → http://localhost:4200/ | ✅ |
+| Production build | `npm run build` | ✅ |
+| Deploy-equivalent build | `npx ng build --base-href /CEULandingPage/` | ✅ (see Git Bash note) |
+| CI build (exact) | `npm run build -- --base-href "/CEULandingPage/"` | same as above |
+| All tests | `npm test -- --watch=false` | ✅ 1 file, 2 tests |
+| Single spec | `npx ng test --watch=false --include src/app/app.spec.ts` | ✅ |
+| Dev watch build | `npm run watch` | ✅ |
+| Lint | none. There's no lint script or ESLint config. | n/a |
+| Format check | `npx prettier --check <files you touched>` | ❌ repo-wide: 28 files unformatted |
 
-Prettier is configured in `.prettierrc` (single quotes, 100 print width, Angular parser for templates) but has no npm script wired to it.
+- Prettier (`.prettierrc`) isn't enforced, and most of `src/` isn't formatted with it. Run it only on
+  files you changed and never `prettier --write` the whole repo, because the diff would bury the real change.
+- **Git Bash on Windows** rewrites `/CEULandingPage/` into `C:/Program Files/Git/CEULandingPage/`.
+  Run base-href builds from PowerShell, or prefix them with `MSYS_NO_PATHCONV=1`. Check the result with
+  `<base href="/CEULandingPage/">` in `dist/ceu-landing-page/browser/index.html`.
+- CI builds PRs and deploys `main`, but **never runs tests**. Run `npm test -- --watch=false` yourself
+  before calling a change done.
 
-## Architecture
+## Environment gotchas
 
-Static, client-rendered Angular 22 single-page app. No backend, no auth, no route-driven flow (`src/app/app.routes.ts` is intentionally empty).
+- CI uses Node 22. A newer local Node (for example 23) works but isn't what CI runs, so treat Node 22 as the target.
+- The app is **zoneless** (no `zone.js` dependency). In tests, `await fixture.whenStable()` and then
+  `fixture.detectChanges()` before asserting on the DOM.
+- The test runner is **Vitest + jsdom** through `@angular/build:unit-test`, not Karma. The
+  "ng test" entry in `.vscode/launch.json` (port 9876) is stale Karma config, so don't rely on it.
+- The build fails on budgets: 1 MB initial, **8 kB per component stylesheet** (`angular.json`).
 
-- `src/main.ts` bootstraps the standalone `App` component with `src/app/app.config.ts` (provides the browser error listener and `HttpClient`).
-- `src/app/app.ts` is the **only** page-level orchestrator: owns the `language` signal, loading/ready/error state, `document.documentElement.lang` updates, and the `TeamDataService` subscription. Do not add section-specific markup or behavior here.
-- `src/app/app.html` composes the page in order: header, hero, content status, about, jersey gallery, schedule, roster, results, upcoming hosted event, recent events, recruitment, footer.
-- Page sections are standalone components under `src/app/components/<section-name>/`, each with typed inputs fed by `App`. The header emits language changes back up to `App`. Add new sections the same way — register in `App`, compose in `app.html` — rather than growing the root template.
-- `TeamDataService` (`src/app/services/`) fetches the **relative** URL `data/team-data.json` and runtime-validates the JSON root, required collections, selected `site` fields, and the `upcomingEvent` content/CTA shape before casting to `TeamData`. Never change this to a root-absolute `/data/team-data.json` — that breaks the `/CEULandingPage/` GitHub Pages deployment. `public/` is copied verbatim into the build by `angular.json`.
-- `src/app/models/team-data.ts` is the shared data contract, grouped under `site`, `schedule`, `roster`, `results`, `upcomingEvent`, `events`, `recruitment`, `contact`. Notable shapes:
-  - `site.introduction` is a non-empty bilingual-paragraph array; item 0 is the club name, the rest render in About. `site.values` holds the three bilingual mission cards below it.
-  - `upcomingEvent` powers the text-first hosted-tournament block before the recent-events gallery; its CTA is optional but `buttonLabel`/`buttonUrl` must be provided together.
-  - `events` records use `host`/`hostLogo` for host clubs, `endDate`/`endDateLabel` for multi-day events, `fit: "contain"` for poster-style images, and a `background` field rendered as the first gallery image. `RecentEventsComponent` sorts these newest-first by ISO `date` — JSON array order is not display order.
-- Bilingual copy is `{ vi, en }` objects rendered via `LocalizedTextPipe` (`src/app/shared/localized-text.pipe.ts`) — pass the active `Language` into section components and use the pipe rather than picking translations ad hoc. Shared schedule/result labels live in `src/app/shared/content-labels.ts`.
-- Fixed brand imagery (avatar, wordmark/background, jersey images) is centralized in `src/app/shared/brand-assets.ts` — use that object instead of repeating asset paths. Event photos/opponent logos live in `public/ceu-img/events/` and are referenced from the `events` collection with `ceu-img/...` paths.
-- `src/styles.css` owns global resets/fonts and imports `src/app/app.css`, which owns the design system, responsive layout, and section styles. This stylesheet is intentionally global (component styles have a tight budget — see below).
+## Architecture boundaries
 
-## Build/compiler constraints
+- `src/app/app.ts` only orchestrates (data load, `language` signal, loading/error state, `<html lang>`).
+  Put new sections in `src/app/components/<section-name>/`, register them in `App`, and compose them in `src/app/app.html`.
+- `TeamDataService` must fetch the **relative** `data/team-data.json`. A root-absolute `/data/...` breaks
+  GitHub Pages.
+- When you change `src/app/models/team-data.ts`, update the validator in
+  `src/app/services/team-data.service.ts` and the `sampleTeamData` fixture in `src/app/app.spec.ts` in the same change.
+- Content belongs in `public/data/team-data.json`, not in Angular code (see `.claude/rules/content-data.md`).
+- Put styles in global `src/app/app.css` (imported by `src/styles.css`), not in component stylesheets. The budget above is why.
+- Reuse these helpers rather than duplicating them: `LocalizedTextPipe` (`src/app/shared/localized-text.pipe.ts`) for
+  `{ vi, en }` text, `src/app/shared/content-labels.ts` for schedule/result labels,
+  `TEAM_BRAND_ASSETS` (`src/app/shared/brand-assets.ts`) for brand/jersey image paths, and the `contact-icon`
+  component for SVG marks. Don't add an icon dependency.
+- Don't show JSON order as display order for events: `RecentEventsComponent` sorts by ISO `date`, newest first.
 
-- `angular.json` uses `@angular/build:application`, copies `public/`, hashes production output, and enforces budgets: 500 kB warning / 1 MB error (initial), 4 kB warning / 8 kB error (per-component style). Keep new styles in the global stylesheet rather than blowing the component budget.
-- `tsconfig.json` targets ES2022 with strict Angular injection/input checks plus `noImplicitReturns`, `noFallthroughCasesInSwitch`, `noPropertyAccessFromIndexSignature`. Fix types rather than widening casts to bypass these.
-- Root integration tests (`app.spec.ts`) use Angular `TestBed` with `provideHttpClient()` + `provideHttpClientTesting()`; flush the exact relative `data/team-data.json` request and call `http.verify()` in teardown. Follow this pattern for language/content-change tests.
-- No coverage threshold, E2E suite, security scanner, or lint script exists — don't describe any as present.
+## Match existing code patterns
 
-## Conventions
+- Standalone components only, never an NgModule. Section components declare `standalone: true`.
+- Use decorator `@Input()` / `@Output() EventEmitter` like the existing sections. Don't introduce signal
+  `input()`/`output()` piecemeal. Migrate only when the task asks for it.
+- Signals live in `App`. Data loading is RxJS `HttpClient` + `map(validate)`. Use `inject()` for DI.
+- Templates use `@if`/`@for`/`@switch`. Every `@for` tracks a stable id (`track item.id`), not `$index`,
+  when one exists.
+- Use relative imports. There are no path aliases or barrel files.
+- Routing is intentionally unused (`src/app/app.routes.ts` is empty and not provided). Don't add routes.
+- Off-site links use full `https://`/`mailto:` URLs, and every `target="_blank"` carries `rel="noopener"`.
+- Keep the black/yellow/gold palette, visible focus states, semantic landmarks, alt text, keyboard
+  access, and `prefers-reduced-motion` handling.
 
-- Use Angular control flow (`@if`, `@for`, `@switch`) as the current templates do; track repeated records with a stable ID or other stable identity.
-- Content maintenance (schedule, upcoming event, roster, results, recent events, recruitment, contact, editorial copy) belongs in `public/data/team-data.json`, not Angular code. Preserve stable IDs, ISO `YYYY-MM-DD` dates, the typed enums (`practice`/`pickup`/`match`, `win`/`loss`/`draw`), complete URLs, and both `vi`/`en` values.
-- Keep public data privacy-safe: no private phone numbers, home addresses, personal accounts, or non-consented player photos. Use the documented empty-photo behavior when no public photo is approved.
-- Reusable SVG contact marks go in the `contact-icon` component rather than adding an icon dependency for a one-off footer link.
-- External links use full `https://` or `mailto:` URLs; `target="_blank"` pairs with `rel="noopener"`.
-- Preserve the black/yellow/gold visual system, visible focus states, semantic landmarks, meaningful alt text, keyboard operation, and `prefers-reduced-motion` behavior when touching UI.
-- `site.sampleNotice` marks the content as sample data — remove/replace only after the team approves public copy, roster, links, and photo permissions (see `implementation_notes.md` for outstanding content items).
-- Update `README.md`, `docs/content-guide.md`, or `implementation_notes.md` when changing the volunteer data workflow, asset filenames, deployment behavior, or other repository-facing conventions. The deeper evidence-backed reference set lives in `docs/codebase/` (start with `ARCHITECTURE.md`, `CONVENTIONS.md`, `CONCERNS.md` for cross-module tasks) — keep it aligned with source/config changes.
+## Testing
 
-## Deployment
+- `src/app/app.spec.ts` is the integration pattern: `provideHttpClient()` + `provideHttpClientTesting()`,
+  `http.expectOne('data/team-data.json').flush(sampleTeamData)`, and `http.verify()` in `afterEach`.
+- Add language/content assertions there, checking user-visible text in both languages.
+- There's no coverage threshold, E2E suite, a11y automation, or security scanner. Don't claim one exists.
 
-`.github/workflows/deploy.yml` runs on Node 22 with `npm ci`, builds with `npm run build -- --base-href "/CEULandingPage/"`, and uploads `dist/ceu-landing-page/browser` to GitHub Pages. Update `--base-href` if the repository name or a custom domain changes.
+## Read when…
+
+- Starting any non-trivial code change: `.github/copilot-instructions.md`
+- Working across modules or on a risky change: `docs/codebase/ARCHITECTURE.md`, `docs/codebase/CONCERNS.md`
+- Checking naming, imports, or error handling: `docs/codebase/CONVENTIONS.md`
+- Writing or changing tests: `docs/codebase/TESTING.md`
+- Editing `public/data/team-data.json` or images: `docs/content-guide.md` (the path rule loads automatically)
+- Checking open launch items (sample copy, base path): `implementation_notes.md`
+
+## Keep docs in sync
+
+- Team-wide coding rule changed: update `.github/copilot-instructions.md` (Copilot and Claude both rely on it).
+- Data contract, volunteer workflow, or asset filenames changed: update `docs/content-guide.md` and `README.md`.
+- Deployment or base path changed: update `README.md` and the `--base-href` in `.github/workflows/deploy.yml`.
+- Source or config structure changed: update the matching file in `docs/codebase/`.
+- A milestone was finished or an open item added: update `implementation_notes.md`.
