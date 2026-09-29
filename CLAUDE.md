@@ -30,7 +30,7 @@ Commands come from `package.json` and `.github/workflows/deploy.yml`. Status is 
 - **Git Bash on Windows** rewrites `/CEULandingPage/` into `C:/Program Files/Git/CEULandingPage/`.
   Run base-href builds from PowerShell, or prefix them with `MSYS_NO_PATHCONV=1`. Check the result with
   `<base href="/CEULandingPage/">` in `dist/ceu-landing-page/browser/index.html`.
-- CI builds PRs and deploys `main`, but **never runs tests**. Run `npm test -- --watch=false` yourself
+- CI builds PRs and deploys `feature/ver-1.1`, but **never runs tests**. Run `npm test -- --watch=false` yourself
   before calling a change done.
 
 ## Environment gotchas

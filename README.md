@@ -84,7 +84,7 @@ and configuration changes that affect future contributors or coding agents.
 ## Deployment
 
 The workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
-builds pull requests and deploys pushes to `main` through GitHub Pages. The
+builds pull requests and deploys pushes to `feature/ver-1.1` through GitHub Pages. The
 current repository path is configured as `/CEULandingPage/`; update the
 `--base-href` value if the repository name or custom domain changes.
 

@@ -3,7 +3,7 @@ name: Build and deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - feature/ver-1.1
   pull_request:
   workflow_dispatch:
 
