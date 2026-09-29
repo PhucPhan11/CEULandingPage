@@ -78,6 +78,10 @@ If the exact date is not fixed yet, omit `date` and write a provisional
 add both `buttonLabel` and `buttonUrl`; if no link exists yet, omit both and
 the button will stay hidden. When the CTA is present, it opens in a new tab.
 
+The decorative calendar tile and large month numeral read the month and year
+from `date` when it is set, otherwise from the `M/YYYY` part of `dateLabel.vi`
+(for example `12/2026`). If neither is present, both decorations are hidden.
+
 ## Adding a recent event
 
 Add records to the top-level `events` array. Store event photos and opponent

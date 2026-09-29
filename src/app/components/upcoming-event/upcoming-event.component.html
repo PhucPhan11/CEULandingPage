@@ -1,10 +1,14 @@
 <section
   class="section section-sand upcoming-event-section"
+  [class.is-reveal-pending]="revealState() === 'pending'"
   id="upcoming-event"
   aria-labelledby="upcoming-event-title"
 >
   <div class="container">
-    <div class="section-intro split-intro">
+    <div class="section-intro split-intro upcoming-event-intro">
+      @if (dateTile; as tile) {
+        <span class="upcoming-event-watermark" aria-hidden="true">{{ tile.month }}</span>
+      }
       <div>
         <p class="eyebrow">{{ content.eyebrow | localized: language }}</p>
         <h2 id="upcoming-event-title">{{ content.title | localized: language }}</h2>
@@ -14,9 +18,17 @@
 
     <div class="upcoming-event-card">
       <div class="upcoming-event-summary">
-        <span class="upcoming-event-badge">
-          {{ { vi: 'Sắp diễn ra', en: 'Coming up' } | localized: language }}
-        </span>
+        <div class="upcoming-event-summary-top">
+          <span class="upcoming-event-badge">
+            {{ { vi: 'Sắp diễn ra', en: 'Coming up' } | localized: language }}
+          </span>
+          @if (dateTile; as tile) {
+            <div class="upcoming-event-tile" aria-hidden="true">
+              <span class="upcoming-event-tile-year">{{ tile.year }}</span>
+              <span class="upcoming-event-tile-month">{{ tile.month }}</span>
+            </div>
+          }
+        </div>
         <p class="upcoming-event-format">{{ content.format | localized: language }}</p>
         <p class="upcoming-event-host">
           <span>{{ { vi: 'Đơn vị tổ chức', en: 'Hosted by' } | localized: language }}</span>
@@ -40,7 +52,15 @@
 
       <dl class="upcoming-event-meta">
         <div>
-          <dt>{{ { vi: 'Thời gian', en: 'When' } | localized: language }}</dt>
+          <dt>
+            <span class="upcoming-event-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" />
+                <path d="M3.5 10h17M8 3v4M16 3v4" />
+              </svg>
+            </span>
+            {{ { vi: 'Thời gian', en: 'When' } | localized: language }}
+          </dt>
           <dd>
             <time [attr.datetime]="content.date || null">{{
               content.dateLabel | localized: language
@@ -48,16 +68,41 @@
           </dd>
         </div>
         <div>
-          <dt>{{ { vi: 'Địa điểm', en: 'Where' } | localized: language }}</dt>
+          <dt>
+            <span class="upcoming-event-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z" />
+                <circle cx="12" cy="10" r="2.4" />
+              </svg>
+            </span>
+            {{ { vi: 'Địa điểm', en: 'Where' } | localized: language }}
+          </dt>
           <dd>{{ content.location | localized: language }}</dd>
         </div>
         <div>
-          <dt>{{ { vi: 'Hình thức', en: 'Format' } | localized: language }}</dt>
+          <dt>
+            <span class="upcoming-event-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7.5 4h9v5a4.5 4.5 0 0 1-9 0V4Z" />
+                <path d="M7.5 6.5H5a2.5 2.5 0 0 0 2.8 3.9M16.5 6.5H19a2.5 2.5 0 0 1-2.8 3.9" />
+                <path d="M12 13.5V17M9.5 17h5l1 3h-7l1-3Z" />
+              </svg>
+            </span>
+            {{ { vi: 'Hình thức', en: 'Format' } | localized: language }}
+          </dt>
           <dd>{{ content.format | localized: language }}</dd>
         </div>
         @if (content.address) {
           <div>
-            <dt>{{ { vi: 'Địa chỉ', en: 'Address' } | localized: language }}</dt>
+            <dt>
+              <span class="upcoming-event-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 4-5 2v14l5-2 6 2 5-2V4l-5 2-6-2Z" />
+                  <path d="M9 4v14M15 6v14" />
+                </svg>
+              </span>
+              {{ { vi: 'Địa chỉ', en: 'Address' } | localized: language }}
+            </dt>
             <dd>{{ content.address | localized: language }}</dd>
           </div>
         }
