@@ -59,15 +59,13 @@ state, and active language. Page sections are standalone components under
 - `about`
 - `jersey-gallery`
 - `schedule`
-- `roster`
-- `results`
 - `upcoming-event`
 - `recent-events`
 - `recruitment`
 - `site-footer`
 
 `src/app/shared/localized-text.pipe.ts` handles bilingual text selection, while
-`src/app/shared/content-labels.ts` owns shared schedule/result labels. The
+`src/app/shared/content-labels.ts` owns shared schedule labels. The
 editable content contract remains in `src/app/models/team-data.ts` and is loaded
 by `src/app/services/team-data.service.ts`. That contract now includes a
 dedicated `upcomingEvent` group for the hosted-tournament block placed before

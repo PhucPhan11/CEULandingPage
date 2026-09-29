@@ -736,15 +736,16 @@ app-root {
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   margin-top: 1px;
-  background: var(--line);
+  background: var(--line-light);
 }
 
 .value-card {
   min-height: 270px;
   padding: 27px;
-  background: var(--cream);
+  background: var(--forest);
   transition:
     background 180ms ease,
+    color 180ms ease,
     transform 180ms ease;
 }
 
@@ -752,6 +753,7 @@ app-root {
   position: relative;
   z-index: 1;
   background: var(--yellow);
+  color: var(--ink);
   transform: translateY(-5px);
 }
 
@@ -763,7 +765,7 @@ app-root {
 }
 
 .value-index {
-  color: var(--muted);
+  color: rgba(247, 248, 242, 0.52);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -774,9 +776,9 @@ app-root {
   width: 35px;
   height: 35px;
   place-items: center;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-light);
   border-radius: 50%;
-  color: var(--orange-deep);
+  color: var(--yellow);
   font-size: 17px;
 }
 
@@ -791,13 +793,26 @@ app-root {
 .value-card p {
   max-width: 270px;
   margin: 0;
-  color: var(--muted);
+  color: rgba(247, 248, 242, 0.58);
   font-size: 13px;
   line-height: 1.65;
 }
 
+.value-card:hover .value-index,
+.value-card:hover p {
+  color: var(--ink-soft);
+}
+
+.value-card:hover .value-icon {
+  border-color: var(--line);
+  color: var(--ink);
+}
+
 .mission-block {
   margin-top: 78px;
+  padding: 44px;
+  background: var(--forest);
+  color: var(--cream);
 }
 
 .mission-heading {
@@ -815,7 +830,7 @@ app-root {
 .mission-heading h3 {
   max-width: 450px;
   margin: 0;
-  color: var(--ink);
+  color: var(--cream);
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1.9rem, 3.6vw, 3.2rem);
   letter-spacing: -0.07em;
@@ -901,7 +916,7 @@ app-root {
 }
 
 .schedule-list {
-  border-top: 1px solid var(--line-light);
+  border-top: 1px solid var(--line);
 }
 
 .schedule-item {
@@ -909,7 +924,7 @@ app-root {
   grid-template-columns: 1.1fr 1.2fr 1fr;
   gap: 38px;
   padding: 31px 0;
-  border-bottom: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line);
   transition:
     padding 180ms ease,
     background 180ms ease;
@@ -917,7 +932,7 @@ app-root {
 
 .schedule-item:hover {
   padding-inline: 18px;
-  background: rgba(247, 248, 242, 0.035);
+  background: rgba(17, 19, 20, 0.035);
 }
 
 .schedule-date {
@@ -927,7 +942,7 @@ app-root {
 }
 
 .schedule-number {
-  color: var(--orange);
+  color: var(--orange-deep);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -935,7 +950,7 @@ app-root {
 
 .schedule-date time {
   max-width: 155px;
-  color: var(--cream);
+  color: var(--ink);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -955,7 +970,7 @@ app-root {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: var(--grass);
+  color: var(--orange-deep);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -963,7 +978,7 @@ app-root {
 }
 
 .schedule-tag-match {
-  color: var(--orange);
+  color: var(--ink);
 }
 
 .tag-dot {
@@ -976,12 +991,12 @@ app-root {
 .schedule-opponent,
 .schedule-note {
   margin: 0;
-  color: rgba(247, 248, 242, 0.52);
+  color: var(--muted);
   font-size: 12px;
 }
 
 .schedule-opponent strong {
-  color: var(--cream);
+  color: var(--ink);
   font-weight: 600;
 }
 
@@ -1002,7 +1017,7 @@ app-root {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  color: rgba(247, 248, 242, 0.76);
+  color: var(--ink-soft);
   font-size: 12px;
   line-height: 1.45;
 }
@@ -1010,12 +1025,12 @@ app-root {
 .meta-line small {
   display: block;
   margin-top: 2px;
-  color: rgba(247, 248, 242, 0.4);
+  color: var(--muted);
   font-size: 10px;
 }
 
 .meta-icon {
-  color: var(--sky);
+  color: var(--orange-deep);
   font-size: 16px;
   line-height: 1;
 }
@@ -1025,7 +1040,7 @@ app-root {
   align-items: center;
   gap: 8px;
   margin-top: 4px;
-  color: var(--yellow);
+  color: var(--orange-deep);
   font-size: 11px;
   font-weight: 700;
   text-decoration: none;
@@ -1033,292 +1048,7 @@ app-root {
 
 .schedule-map:hover,
 .schedule-map:focus-visible {
-  color: var(--cream);
-}
-
-.roster-section {
-  position: relative;
-}
-
-.roster-section::before {
-  position: absolute;
-  top: 80px;
-  right: -120px;
-  width: 350px;
-  height: 350px;
-  border: 1px solid rgba(255, 178, 14, 0.16);
-  border-radius: 50%;
-  content: '';
-}
-
-.roster-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.member-card {
-  min-height: 315px;
-  padding: 17px;
-  background: var(--cream);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.member-card:hover {
-  z-index: 1;
-  box-shadow: 10px 12px 0 rgba(17, 19, 20, 0.12);
-  transform: translateY(-5px);
-}
-
-.member-avatar {
-  position: relative;
-  display: grid;
-  height: 172px;
-  place-items: center;
-  overflow: hidden;
-  background: var(--grass);
   color: var(--forest);
-}
-
-.accent-orange .member-avatar {
-  background: var(--orange);
-}
-
-.accent-blue .member-avatar {
-  background: var(--sky);
-}
-
-.accent-yellow .member-avatar {
-  background: var(--yellow);
-}
-
-.member-avatar span:first-child {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 54px;
-  font-weight: 600;
-  letter-spacing: -0.1em;
-}
-
-.member-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.member-number {
-  position: absolute;
-  right: 12px;
-  bottom: 10px;
-  color: rgba(17, 19, 20, 0.48);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 33px;
-  font-weight: 600;
-  letter-spacing: -0.08em;
-}
-
-.member-info {
-  padding: 17px 2px 3px;
-}
-
-.member-role {
-  margin: 0 0 5px;
-  color: var(--orange-deep);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-.member-info h3 {
-  margin: 0 0 8px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px;
-  letter-spacing: -0.05em;
-}
-
-.member-info > p:last-child {
-  max-width: 245px;
-  margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.results-layout {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
-  gap: 72px;
-}
-
-.results-record {
-  align-self: start;
-  padding: 27px;
-  background: var(--forest);
-  color: var(--cream);
-}
-
-.record-label {
-  color: var(--yellow);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-.record-score {
-  display: flex;
-  align-items: flex-end;
-  gap: 12px;
-  margin-top: 62px;
-}
-
-.record-score strong {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(5rem, 9vw, 8rem);
-  font-weight: 600;
-  letter-spacing: -0.14em;
-  line-height: 0.75;
-}
-
-.record-score span {
-  max-width: 60px;
-  padding-bottom: 4px;
-  color: rgba(247, 248, 242, 0.55);
-  font-size: 11px;
-  line-height: 1.2;
-}
-
-.record-bars {
-  display: flex;
-  gap: 5px;
-  margin-top: 39px;
-}
-
-.record-bar {
-  flex: 1;
-  height: 6px;
-  background: var(--grass);
-}
-
-.record-loss {
-  background: var(--orange);
-}
-
-.record-draw {
-  background: var(--sky);
-}
-
-.results-record > p {
-  max-width: 200px;
-  margin: 29px 0 0;
-  color: rgba(247, 248, 242, 0.52);
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-.results-list {
-  border-top: 1px solid var(--line);
-}
-
-.result-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: 0.85fr 1.35fr auto;
-  gap: 24px;
-  align-items: center;
-  padding: 25px 0 23px;
-  border-bottom: 1px solid var(--line);
-}
-
-.result-date {
-  display: grid;
-  gap: 8px;
-}
-
-.result-date time {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.result-date span {
-  color: var(--muted);
-  font-size: 10px;
-}
-
-.result-matchup {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.result-matchup > span:last-child {
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.result-matchup strong {
-  color: var(--orange-deep);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 21px;
-  letter-spacing: -0.06em;
-  white-space: nowrap;
-}
-
-.result-matchup small {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.result-status {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.result-symbol {
-  display: grid;
-  width: 23px;
-  height: 23px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--grass);
-  color: var(--forest);
-  font-size: 9px;
-}
-
-.status-loss .result-symbol {
-  background: var(--orange);
-}
-
-.status-draw .result-symbol {
-  background: var(--sky);
-}
-
-.status-loss {
-  color: var(--orange-deep);
-}
-
-.status-draw {
-  color: #9b7600;
-}
-
-.result-highlight {
-  grid-column: 2 / 4;
-  margin: -8px 0 0;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.45;
 }
 
 .upcoming-event-section {
@@ -1419,6 +1149,7 @@ app-root {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px 24px;
+  margin: 0;
 }
 
 .upcoming-event-meta div {
@@ -1906,13 +1637,6 @@ app-contact-icon {
   font-size: 13px;
 }
 
-.empty-state-dark {
-  grid-column: 1 / -1;
-  min-height: 220px;
-  border-color: rgba(17, 19, 20, 0.17);
-  background: rgba(247, 248, 242, 0.45);
-}
-
 @keyframes float-disc {
   0%,
   100% {
@@ -1989,9 +1713,7 @@ app-contact-icon {
     gap: 35px;
   }
 
-  .about-grid,
-  .results-layout,
-  .upcoming-event-card {
+  .about-grid {
     gap: 40px;
   }
 
@@ -2151,7 +1873,6 @@ app-contact-icon {
 
   .split-intro,
   .about-grid,
-  .results-layout,
   .join-inner,
   .upcoming-event-card {
     grid-template-columns: 1fr;
@@ -2176,6 +1897,7 @@ app-contact-icon {
 
   .mission-block {
     margin-top: 57px;
+    padding: 28px 20px;
   }
 
   .mission-heading {
@@ -2208,7 +1930,6 @@ app-contact-icon {
   }
 
   .values-grid,
-  .roster-grid,
   .jersey-gallery {
     grid-template-columns: 1fr;
   }
@@ -2259,18 +1980,6 @@ app-contact-icon {
     padding-left: 29px;
   }
 
-  .member-card {
-    min-height: 280px;
-  }
-
-  .member-avatar {
-    height: 150px;
-  }
-
-  .results-layout {
-    gap: 28px;
-  }
-
   .upcoming-event-card {
     border-radius: 24px;
   }
@@ -2314,44 +2023,6 @@ app-contact-icon {
   .event-feature-logo {
     width: 112px;
     height: 112px;
-  }
-
-  .results-record {
-    min-height: auto;
-  }
-
-  .record-score {
-    margin-top: 45px;
-  }
-
-  .result-item {
-    grid-template-columns: 1fr auto;
-    gap: 15px;
-  }
-
-  .result-date {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-  }
-
-  .result-matchup {
-    gap: 9px;
-    font-size: 10px;
-  }
-
-  .result-matchup strong {
-    font-size: 19px;
-  }
-
-  .result-status {
-    font-size: 9px;
-  }
-
-  .result-highlight {
-    grid-column: 1 / -1;
-    margin: 0;
   }
 
   .join-inner {

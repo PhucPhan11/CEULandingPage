@@ -24,7 +24,7 @@
 - [x] Added the Southwest Hat 2024 event with its logo, background, and supplied event photo.
 - [x] Added the online LOI CHOI RUN event for 15/07/2026–09/08/2026 with four supplied images.
 - [x] Added the SEACUP5 event hosted by NTSEA Ultimate Club with both logos and two supplied team photos.
-- [x] Added the text-first upcoming CEU-hosted November event block with provisional details and an optional CTA model.
+- [x] Added the text-first upcoming CEU-hosted December event block with provisional details and an optional CTA model.
 - [x] Sorted recent events newest first by their ISO event date.
 - [x] Matched the Southwest Hat gallery to the friendly-match layout with two images in one desktop row.
 - [x] Improved responsive hero headline wrapping and widened the tablet copy measure to avoid an orphaned final word.
@@ -35,7 +35,7 @@
 - [x] Added content maintenance documentation and GitHub Pages deployment workflow.
 - [x] Verified the production build, the `/CEULandingPage/` base-href build, and two focused Angular tests.
 - [x] Made the data request relative to the base href so GitHub Pages can serve `team-data.json` from the repository subpath.
-- [ ] Replace or approve the remaining sample/provisional copy, player data, photos, schedule, results, and November hosted-event details.
+- [ ] Replace or approve the remaining sample/provisional copy, player data, photos, schedule, results, and December hosted-event details.
 - [ ] Confirm the final GitHub Pages URL/base path and custom-domain decision.
 
 ## Content handoff

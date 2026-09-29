@@ -74,7 +74,7 @@ past-events gallery.
 - Optional fields: `date`, `address`, `buttonLabel`, and `buttonUrl`
 
 If the exact date is not fixed yet, omit `date` and write a provisional
-`dateLabel` such as “Tháng 11/2026 · sẽ cập nhật ngày cụ thể”. If you add a CTA,
+`dateLabel` such as “Tháng 12/2026 · sẽ cập nhật ngày cụ thể”. If you add a CTA,
 add both `buttonLabel` and `buttonUrl`; if no link exists yet, omit both and
 the button will stay hidden. When the CTA is present, it opens in a new tab.
 

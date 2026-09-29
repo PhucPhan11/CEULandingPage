@@ -46,7 +46,7 @@ describe('App', () => {
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Gây dựng');
     expect(compiled.querySelector('.site-header a[href="#upcoming-event"]')).toBeTruthy();
     expect(compiled.querySelector('#upcoming-event-title')?.textContent).toContain(
-      'Cúp CEU tháng 11 tại Cần Thơ',
+      'Cúp CEU tháng 12 tại Cần Thơ',
     );
     expect(
       compiled.querySelector('.upcoming-event-meta time')?.getAttribute('datetime'),
@@ -101,7 +101,7 @@ describe('App', () => {
     );
     expect(compiled.querySelector('#mission-title')?.textContent).toContain('Build. Train. Share.');
     expect(compiled.querySelector('#upcoming-event-title')?.textContent).toContain(
-      'CEU Cup this November in Can Tho',
+      'CEU Cup this December in Can Tho',
     );
     expect(eventCards[3].querySelector('h3')?.textContent).toContain('CEU friendly match');
     expect(compiled.querySelectorAll('.event-feature-logo')).toHaveLength(2);
@@ -137,11 +137,11 @@ const sampleTeamData: TeamData = {
   roster: [],
   results: [],
   upcomingEvent: {
-    eyebrow: { vi: '06 / Sắp diễn ra', en: '06 / Coming up' },
-    title: { vi: 'Cúp CEU tháng 11 tại Cần Thơ', en: 'CEU Cup this November in Can Tho' },
+    eyebrow: { vi: '04 / Sắp diễn ra', en: '04 / Coming up' },
+    title: { vi: 'Cúp CEU tháng 12 tại Cần Thơ', en: 'CEU Cup this December in Can Tho' },
     description: {
-      vi: 'CEU đang chuẩn bị tổ chức một giải cup trong 1 ngày tại Cần Thơ vào tháng 11/2026.',
-      en: 'CEU is preparing to host a one-day cup tournament in Can Tho in November 2026.',
+      vi: 'CEU đang chuẩn bị tổ chức một giải cup trong 1 ngày tại Cần Thơ vào tháng 12/2026.',
+      en: 'CEU is preparing to host a one-day cup tournament in Can Tho in December 2026.',
     },
     host: 'CEU',
     format: {
@@ -149,8 +149,8 @@ const sampleTeamData: TeamData = {
       en: 'A one-day cup tournament hosted by CEU',
     },
     dateLabel: {
-      vi: 'Tháng 11/2026 · sẽ cập nhật ngày cụ thể',
-      en: 'November 2026 · exact date to be confirmed',
+      vi: 'Tháng 12/2026 · sẽ cập nhật ngày cụ thể',
+      en: 'December 2026 · exact date to be confirmed',
     },
     location: { vi: 'Cần Thơ, Việt Nam', en: 'Can Tho, Vietnam' },
   },

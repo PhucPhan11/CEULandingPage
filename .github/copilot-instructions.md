@@ -59,8 +59,8 @@ npm run watch
   `TeamDataService` subscription. Keep section-specific markup and behavior
   out of this class.
 - `src/app/app.html` composes the page in this order: header, hero, content
-  status, about, jersey gallery, schedule, roster, results, upcoming hosted
-  event, recent events, recruitment, and footer. Sections under
+  status, about, jersey gallery, schedule, upcoming hosted event, recent
+  events, recruitment, and footer. Sections under
   `src/app/components/` are standalone components with typed inputs; the
   header emits language changes back to `App`.
 - `TeamDataService` loads the relative URL `data/team-data.json` and performs
@@ -136,7 +136,7 @@ npm run watch
 - Keep public data privacy-safe: do not add private phone numbers, home
   addresses, personal accounts, or player photos without consent. Use the
   documented empty-photo behavior when no public photo is approved.
-- Put reusable bilingual schedule/result labels in
+- Put reusable bilingual schedule labels in
   `src/app/shared/content-labels.ts`; put reusable SVG contact marks in the
   `contact-icon` component instead of adding an icon dependency for one-off
   footer links.

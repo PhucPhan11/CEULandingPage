@@ -16,7 +16,7 @@
 | Debt item                                    | Why it exists                                                                        | Where                                                  | Risk if ignored                                               | Suggested fix                                                                               |
 | -------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | Global stylesheet is large                   | Shared layout/tokens avoid Angular component-style budget failures                   | `src/app/app.css`                                      | Changes can have broad selectors and become harder to isolate | Keep section boundaries clear; split only with a budget-safe styling plan                   |
-| Content remains partly sample or provisional | `site.sampleNotice` is still live and the hosted November event is still provisional | `public/data/team-data.json`, `docs/content-guide.md`  | Sample or tentative copy could be published unintentionally   | Remove or replace `site.sampleNotice` and finalize the November event details before launch |
+| Content remains partly sample or provisional | `site.sampleNotice` is still live and the hosted December event is still provisional | `public/data/team-data.json`, `docs/content-guide.md`  | Sample or tentative copy could be published unintentionally   | Remove or replace `site.sampleNotice` and finalize the December event details before launch |
 | Event JSON relies on media path discipline   | Static assets are referenced by hand-maintained relative strings                     | `public/data/team-data.json`, `public/ceu-img/events/` | Typos produce broken images after deployment                  | Add build-time asset/path validation if the collection grows                                |
 
 ### 3) Security Concerns
@@ -51,7 +51,7 @@
 2. [ASK USER] Should GitHub Actions run `npm test -- --watch=false` before
    uploading the Pages artifact?
 3. [ASK USER] Which remaining sample or provisional records, roster entries,
-   and November hosted-event details are approved for public launch?
+   and December hosted-event details are approved for public launch?
 4. [ASK USER] Are all supplied event photos approved for public publication?
 5. [ASK USER] Will the site remain at `/CEULandingPage/`, or should a custom
    domain/base path be planned?

@@ -9,7 +9,7 @@
 | Files               | kebab-case feature directories and Angular suffixes                   | `upcoming-event.component.ts`                | `src/app/components/upcoming-event/*`                         |
 | Functions/methods   | camelCase; visibility is often explicit with `protected` or `private` | `setLanguage`, `loadData`                    | `src/app/app.ts`                                              |
 | Types/interfaces    | PascalCase                                                            | `TeamData`, `UpcomingEventContent`           | `src/app/models/team-data.ts`                                 |
-| Constants           | uppercase descriptive names for shared immutable maps                 | `TEAM_BRAND_ASSETS`, `RESULT_OUTCOME_LABELS` | `src/app/shared/*`                                            |
+| Constants           | uppercase descriptive names for shared immutable maps                 | `TEAM_BRAND_ASSETS`, `SCHEDULE_KIND_LABELS`  | `src/app/shared/*`                                            |
 | Content IDs         | stable lower-case hyphenated strings                                  | `seacup5-2026`, `training-friday`            | `public/data/team-data.json`                                  |
 | Component selectors | `app-` plus kebab-case                                                | `app-recent-events`                          | `src/app/components/recent-events/recent-events.component.ts` |
 

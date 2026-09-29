@@ -5,8 +5,6 @@ import { HeroComponent } from './components/hero/hero.component';
 import { JerseyGalleryComponent } from './components/jersey-gallery/jersey-gallery.component';
 import { RecruitmentComponent } from './components/recruitment/recruitment.component';
 import { RecentEventsComponent } from './components/recent-events/recent-events.component';
-import { ResultsComponent } from './components/results/results.component';
-import { RosterComponent } from './components/roster/roster.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { SiteFooterComponent } from './components/site-footer/site-footer.component';
 import { SiteHeaderComponent } from './components/site-header/site-header.component';
@@ -21,8 +19,6 @@ import { TeamDataService } from './services/team-data.service';
     JerseyGalleryComponent,
     RecruitmentComponent,
     RecentEventsComponent,
-    ResultsComponent,
-    RosterComponent,
     ScheduleComponent,
     SiteFooterComponent,
     SiteHeaderComponent,
