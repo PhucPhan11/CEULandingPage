@@ -35,6 +35,7 @@
 - [x] Added content maintenance documentation and GitHub Pages deployment workflow.
 - [x] Verified the production build, the `/CEULandingPage/` base-href build, and two focused Angular tests.
 - [x] Made the data request relative to the base href so GitHub Pages can serve `team-data.json` from the repository subpath.
+- [x] Migrated dependencies to latest stable (2026-10-23): Angular 22.2, Vitest 5, jsdom 30, Prettier 3.9.10, npm 12.2.1, and current GitHub Actions majors. TypeScript stays on 6.0 because Angular 22.2 does not support 7.x yet.
 - [ ] Replace or approve the remaining sample/provisional copy, player data, photos, schedule, results, and November hosted-event details.
 - [ ] Confirm the final GitHub Pages URL/base path and custom-domain decision.
 
