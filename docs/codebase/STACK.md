@@ -55,6 +55,8 @@ lint command is `[TODO]`.
 - Config sources: `package.json`, `angular.json`, `tsconfig.json`,
   `tsconfig.app.json`, `tsconfig.spec.json`, `.prettierrc`, `.editorconfig`,
   `.github/workflows/deploy.yml`.
+- `package.json` `overrides` pins `vite` to 8.3.5 because `@angular/build` 22.2.4
+  pins vulnerable Vite 8.3.0. Remove it once an `@angular/build` release ships a patched Vite.
 - Required environment variables: none are read by the application and no
   `.env.example` or `.env.template` was found by the repository scan.
 - Deployment/runtime constraints: the GitHub Pages build uses Node 22, the
