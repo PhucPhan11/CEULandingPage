@@ -4,7 +4,7 @@
 
 ### 1) Test Stack and Commands
 
-- Primary test framework: Vitest 4 through Angular's
+- Primary test framework: Vitest 5 through Angular's
   `@angular/build:unit-test` builder.
 - Assertion/mocking tools: Vitest `expect`, Angular `TestBed`,
   `HttpTestingController`, `provideHttpClient`, and
